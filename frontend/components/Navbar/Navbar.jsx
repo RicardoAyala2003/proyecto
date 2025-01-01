@@ -1,68 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Menu } from "antd";
+import { Layout } from "antd";
 
-const Navbar = () => {
-  const [currentTime, setCurrentTime] = useState("");
+const { Header, Content } = Layout;
 
-  // Actualiza la hora cada segundo
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const day = now.toLocaleDateString("es-ES", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      });
-      const time = now.toLocaleTimeString("es-ES");
-      setCurrentTime(`${day}, ${time}`);
-    }, 1000);
-
-    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonte
-  }, []);
-
+const Navbar = ({ children }) => {
   return (
-    <nav className="bg-[#002140] text-white shadow-md fixed w-full z-10">
-      <div className="container mx-auto flex flex-col items-center justify-center h-20">
-        {/* Logo */}
-        <div className="mb-2">
-          <Link to="/" className="text-2xl font-bold text-white">
-            <img
-              src="/ProyectImages/Resources/logo.png"
-              alt="Brand Logo"
-              className="h-10 w-auto"
-            />
-          </Link>
+    <Layout style={{ minHeight: "100vh" }}>
+      {/* Navbar */}
+      <Header
+        className="fixed top-0 left-0 w-full z-10 shadow-md"
+        style={{
+          backgroundColor: "rgba(0, 33, 64, 0.9)", // Azul oscuro transparente
+          backdropFilter: "blur(10px)",
+        }}>
+        <div className="container mx-auto flex items-center justify-center h-16">
+          {/* Menú */}
+          <nav className="flex items-center text-white font-medium text-lg space-x-6">
+            <Link to="/" className="hover:text-gray-300">
+              Inicio
+            </Link>
+            <Link to="/ministerio" className="hover:text-gray-300">
+              Ministerio
+            </Link>
+            <Link to="/multimedia" className="hover:text-gray-300">
+              Multimedia
+            </Link>
+
+            {/* Logo Centrado */}
+            <Link to="/" className="flex items-center">
+              <img
+                src="/ProyectImages/Resources/logo.png"
+                alt="Brand Logo"
+                className="h-10 w-auto mx-4"
+              />
+            </Link>
+
+            <Link to="/aportaciones" className="hover:text-gray-300">
+              Aportaciones
+            </Link>
+            <Link to="/envivo" className="hover:text-gray-300">
+              En Vivo
+            </Link>
+          </nav>
         </div>
+      </Header>
 
-        {/* Navegación */}
-        <Menu
-          mode="horizontal"
-          theme="dark"
-          className="bg-[#002140] text-white"
-          selectable={false}>
-          <Menu.Item key="1">
-            <Link to="/">Inicio</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/ministerio">Ministerio</Link>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="/multimedia">Multimedia</Link>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Link to="/aportaciones">Aportaciones</Link>
-          </Menu.Item>
-          <Menu.Item key="5">
-            <Link to="/envivo">En Vivo</Link>
-          </Menu.Item>
-        </Menu>
-
-        {/* Reloj */}
-        <div className="text-sm text-white mt-2">{currentTime}</div>
-      </div>
-    </nav>
+      {/* Contenido */}
+      <Content style={{ marginTop: 80, padding: "20px" }}>{children}</Content>
+    </Layout>
   );
 };
 
