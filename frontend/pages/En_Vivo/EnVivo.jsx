@@ -26,25 +26,25 @@ const EnVivo = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+    <div className="flex justify-center items-center -mt-10 min-h-screen bg-gray-100">
       <div className="bg-white p-4 rounded-lg shadow-lg max-w-7xl w-full">
         {/* Title */}
         <h2 className="text-2xl font-bold text-center mb-6">Últimos Videos</h2>
 
-        {/* Arrows outside the video container */}
-        <div className="flex justify-between items-center">
+        {/* Arrows and Video container */}
+        <div className="flex justify-center items-center space-x-8"> {/* Increased space between the arrows */}
           {/* Left Arrow Button */}
           <button
             onClick={prevVideo}
-            className="text-white bg-black rounded-full p-2 shadow-lg hover:bg-gray-700"
+            className="text-white bg-black rounded-full p-4 shadow-lg hover:bg-gray-700"
           >
             &#60;
           </button>
 
-          {/* Video iframe */}
-          <div className="overflow-hidden rounded-lg bg-black w-full">
+          {/* Video iframe (increased width) */}
+          <div className="overflow-hidden rounded-lg bg-black w-full sm:w-[750px] md:w-[900px] lg:w-[1200px]">
             <iframe
-              className="w-full h-96 sm:h-[500px] lg:h-[600px]" // Increased height for a bigger video
+              className="w-full h-96 sm:h-[400px] lg:h-[600px]" // Increased height for a bigger video
               src={videos[currentVideoIndex]}
               title="YouTube video player"
               frameBorder="0"
@@ -57,7 +57,7 @@ const EnVivo = () => {
           {/* Right Arrow Button */}
           <button
             onClick={nextVideo}
-            className="text-white bg-black rounded-full p-2 shadow-lg hover:bg-gray-700"
+            className="text-white bg-black rounded-full p-4 shadow-lg hover:bg-gray-700"
           >
             &#62;
           </button>
