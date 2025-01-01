@@ -10,15 +10,16 @@ import Envivo from "../pages/En_Vivo/EnVivo.jsx";
 function App() {
   return (
     <Router>
-      <NAVBAR />
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/registro" element={<Registro />} />
-        <Route path="/ministerio" element={<Ministerio />} />
-        <Route path="/multimedia" element={<Multimedia />} />
-        <Route path="/aportaciones" element={<Aportaciones />} />
-        <Route path="/envivo" element={<Envivo />} />
-      </Routes>
+      <NAVBAR>
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/ministerio" element={<Ministerio />} />
+          <Route path="/multimedia" element={<Multimedia />} />
+          <Route path="/aportaciones" element={<Aportaciones />} />
+          <Route path="/envivo" element={<Envivo />} />
+        </Routes>
+      </NAVBAR>
     </Router>
   );
 }
