@@ -4,8 +4,6 @@ import { Menu } from "antd";
 
 const Navbar = () => {
   const [currentTime, setCurrentTime] = useState("");
-
-  // Actualiza la hora cada segundo
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
@@ -19,7 +17,7 @@ const Navbar = () => {
       setCurrentTime(`${day}, ${time}`);
     }, 1000);
 
-    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval); 
   }, []);
 
   return (
@@ -41,7 +39,8 @@ const Navbar = () => {
           mode="horizontal"
           theme="dark"
           className="bg-[#002140] text-white"
-          selectable={false}>
+          selectable={false}
+        >
           <Menu.Item key="1">
             <Link to="/">Inicio</Link>
           </Menu.Item>
