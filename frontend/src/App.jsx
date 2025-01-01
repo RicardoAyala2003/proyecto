@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Footer from "../components/Footer/Footer.jsx";
+
 import NAVBAR from "../components/Navbar/Navbar.jsx";
 import Inicio from "../pages/Inicio/Inicio.jsx";
 import Registro from "../pages/Inicio/Formularios/Registro.jsx";
@@ -20,6 +23,7 @@ function App() {
           <Route path="/envivo" element={<Envivo />} />
         </Routes>
       </NAVBAR>
+      <Footer />
     </Router>
   );
 }
