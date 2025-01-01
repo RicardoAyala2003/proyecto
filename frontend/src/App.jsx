@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 // Components
-// import NAVBAR from "../components/Navbar/Navbar.jsx";
+import NAVBAR from "../components/Navbar/Navbar.jsx";
 // import FOOTER from "../components/Footer.jsx";
 
 //Pages
@@ -27,17 +27,19 @@ import Envivo from "../pages/En_Vivo/EnVivo.jsx";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/ministerio" element={<Ministerio />} />
-          <Route path="/multimedia" element={<Multimedia />} />
-          <Route path="/aportaciones" element={<Aportaciones />} />
-          <Route path="/envivo" element={<Envivo />} />
-        </Route>
-      </Routes>
+      <NAVBAR>
+        <Routes>
+          <Route>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/ministerio" element={<Ministerio />} />
+            <Route path="/multimedia" element={<Multimedia />} />
+            <Route path="/aportaciones" element={<Aportaciones />} />
+            <Route path="/envivo" element={<Envivo />} />
+          </Route>
+        </Routes>
 
-      {/* <FOOTER /> */}
+        {/* <FOOTER /> */}
+      </NAVBAR>
     </Router>
   );
 }
