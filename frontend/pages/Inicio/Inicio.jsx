@@ -13,7 +13,7 @@ const Inicio = () => {
   };
 
   const handleContactClick = () => {
-    navigate("/contacto"); // Asegúrate de que esta ruta esté configurada correctamente en tu router
+    navigate("/contactar"); // Asegúrate de que esta ruta esté configurada correctamente en tu router
   };
 
   return (

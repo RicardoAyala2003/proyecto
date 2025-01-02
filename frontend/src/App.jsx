@@ -6,6 +6,7 @@ import NAVBAR from "../components/Navbar/Navbar.jsx";
 import Inicio from "../pages/Inicio/Inicio.jsx";
 import Registro from "../pages/Inicio/Formularios/Registro.jsx";
 import Orar from "../pages/Inicio/Formularios/Orar.jsx";
+import Contactar from "../pages/Inicio/Formularios/Contactanos.jsx";
 import Ministerio from "../pages/Ministerio/Ministerio.jsx";
 import Multimedia from "../pages/Multimedia/Multimedia.jsx";
 import Aportaciones from "../pages/Aportaciones/Aportaciones.jsx";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/multimedia" element={<Multimedia />} />
           <Route path="/aportaciones" element={<Aportaciones />} />
           <Route path="/orar" element={<Orar />} />
+          <Route path="/contactar" element={<Contactar />} />
           <Route path="/envivo" element={<Envivo />} />
         </Routes>
       </NAVBAR>
