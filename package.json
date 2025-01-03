@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RicardoAyala2003/proyecto/issues"
   },
-  "homepage": "https://github.com/RicardoAyala2003/proyecto#readme"
+  "homepage": "https://github.com/RicardoAyala2003/proyecto#readme",
+  "devDependencies": {
+    "vite": "^6.0.7"
+  }
 }

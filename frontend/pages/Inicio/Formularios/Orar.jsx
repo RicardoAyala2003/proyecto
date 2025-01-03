@@ -10,13 +10,18 @@ const Orar = () => {
     console.log('Failed:', errorInfo);
   };
 
+  const dominantColor = "#193753"; // Color dominante en HEX
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-900 text-white">
-      <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-md text-gray-900">
-        <h1 className="text-2xl font-bold text-center text-blue-900 mb-6">
+    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: dominantColor }}>
+      <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-xl">
+        <h1
+          className="text-3xl font-extrabold text-center mb-4"
+          style={{ color: dominantColor }}
+        >
           ¡No estás solo, estamos junto a ti!
         </h1>
-        <p className="text-center text-blue-900 mb-4">
+        <p className="text-center mb-6" style={{ color: dominantColor }}>
           Déjanos tu petición de oración y tus datos, queremos conocerte y mantenernos en contacto contigo.
         </p>
         <Form
@@ -24,57 +29,73 @@ const Orar = () => {
           layout="vertical"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          className="grid grid-cols-1 gap-4"
+          className="grid grid-cols-1 gap-6"
         >
           <Form.Item
-            label="Petición de oración..."
+            label="Petición de oración"
             name="prayerRequest"
             rules={[{ required: true, message: 'Por favor, ingresa tu petición de oración.' }]}
-            className="col-span-1"
           >
-            <Input.TextArea placeholder="Escribe tu petición aquí..." rows={4} />
+            <Input.TextArea
+              placeholder="Escribe tu petición aquí..."
+              rows={4}
+              className="rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+            />
           </Form.Item>
 
           <Form.Item
             label="Nombre completo"
             name="name"
             rules={[{ required: true, message: 'Por favor, ingresa tu nombre completo.' }]}
-            className="col-span-1"
           >
-            <Input placeholder="Nombre completo" />
+            <Input
+              placeholder="Nombre completo"
+              className="rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+            />
           </Form.Item>
 
           <Form.Item
             label="Correo Electrónico"
             name="email"
             rules={[{ required: true, type: 'email', message: 'Por favor, ingresa un correo válido.' }]}
-            className="col-span-1"
           >
-            <Input placeholder="ejemplo@correo.com" />
+            <Input
+              placeholder="ejemplo@correo.com"
+              className="rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+            />
           </Form.Item>
 
           <Form.Item
             label="Teléfono"
             name="phone"
             rules={[{ required: true, message: 'Por favor, ingresa tu número de teléfono.' }]}
-            className="col-span-1"
           >
-            <Input placeholder="Número de teléfono" />
+            <Input
+              placeholder="Número de teléfono"
+              className="rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+            />
           </Form.Item>
 
           <Form.Item
             name="consent"
             valuePropName="checked"
             rules={[{ required: true, message: 'Debes aceptar para continuar.' }]}
-            className="col-span-2"
           >
-            <Checkbox>
+            <Checkbox style={{ color: dominantColor }}>
               Doy consentimiento para que la Iglesia de Cristo Ebenezer obtenga mis datos para poder ponerse en contacto conmigo.
             </Checkbox>
           </Form.Item>
 
-          <Form.Item className="col-span-2">
-            <Button type="primary" htmlType="submit" className="w-full bg-blue-900 hover:bg-blue-700">
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="w-full text-white rounded-md py-2 shadow-md hover:shadow-lg transition duration-300"
+              style={{
+                backgroundColor: dominantColor,
+                borderColor: dominantColor,
+              }}
+            >
               Enviar Petición
             </Button>
           </Form.Item>
