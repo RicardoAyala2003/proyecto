@@ -1,0 +1,25 @@
+.masonry-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 8px; /* Adjust this value for finer control */
+    gap: 16px;
+  }
+  
+  .masonry-item {
+    break-inside: avoid;
+    padding-bottom: 16px; /* Matches the gap for a consistent layout */
+  }
+  
+  .masonry-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    grid-row-end: span calc(var(--image-height) / 8);
+  }
+  
+  .masonry-item {
+    --image-height: auto; /* Default for fallback */
+  }
+  

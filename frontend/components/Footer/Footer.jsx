@@ -15,7 +15,7 @@ const CustomFooter = () => {
         {/* Sección del Logo */}
         <div className="mb-6 lg:mb-0">
           <img
-            src="/Resources/logo.png"
+            src="/Resources/logo2.png"
             alt="Brand Logo"
             className="h-12 w-auto"
           />
