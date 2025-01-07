@@ -16,13 +16,16 @@ const Inicio = () => {
   };
 
   const handleContactClick = () => {
-    navigate("/contactar"); // Asegúrate de que esta ruta esté configurada correctamente en tu router
+    navigate("/contacto"); // Asegúrate de que esta ruta esté configurada correctamente en tu router
   };
 
   return (
     <div>
-      <ImagesBanner title="Bienvenido" image="/Covers/inicio2.jpg">
-        <div className="w-screen justify-center items-center z-10">
+      <ImagesBanner
+        title="Bienvenido"
+        image="/Covers/inicio2.jpg"
+        overlayMargin={48}>
+        <div className="w-screen  justify-center items-center z-10">
           <div className="flex justify-center items-center z-10">
             <HomeGallery />
           </div>
