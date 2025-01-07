@@ -6,7 +6,7 @@ const HomePage = (props) => {
     <div className="homepage">
       {/* Sección inicial con imagen de fondo */}
       <div
-        className="hero-section"
+        className="hero-section h-screen"
         style={{ backgroundImage: `url(${props.image})` }}>
         <div className="hero-content z-10">
           <h1 className="text-white text-5xl font-bold">{props.title}</h1>
@@ -18,10 +18,9 @@ const HomePage = (props) => {
       </div>
       {/* Nuevo overlay para componentes dinámicos */}
       <div
-        className="dynamic-overlay"
+        className={`dynamic-overlay -mt-64`}
         style={{
           position: "relative",
-          marginTop: "-200px", // Aproximadamente el 80% debajo de la imagen de título
         }}>
         {props.children}
       </div>
