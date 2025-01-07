@@ -7,7 +7,11 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        masonry: "repeat(auto-fill, minmax(200px, 1fr))",
+      },
+    },
   },
   plugins: [],
 };

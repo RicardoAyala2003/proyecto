@@ -12,6 +12,8 @@ import Multimedia from "../pages/Multimedia/Multimedia.jsx";
 import Aportaciones from "../pages/Aportaciones/Aportaciones.jsx";
 import Envivo from "../pages/En_Vivo/EnVivo.jsx";
 
+import Devarea from "../pages/Devarea/Devarea.jsx";
+
 function App() {
   return (
     <Router>
@@ -25,6 +27,7 @@ function App() {
           <Route path="/orar" element={<Orar />} />
           <Route path="/contactar" element={<Contactar />} />
           <Route path="/envivo" element={<Envivo />} />
+          <Route path="/devarea" element={<Devarea />} />
         </Routes>
       </NAVBAR>
       <Footer />

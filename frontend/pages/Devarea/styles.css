@@ -1,0 +1,39 @@
+.homepage {
+  font-family: "Arial", sans-serif;
+}
+
+/* Sección inicial */
+.hero-section {
+  background-image: url("/Covers/gg.webp"); /* Imagen de fondo */
+  background-size: cover;
+  /* background-color: red; */
+  background-position: top;
+  /* height: 100%; */
+  /* width: 100vw; */
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content h1 {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombreado para mejor visibilidad */
+}
+
+/* Fondo ondulado */
+.wave-section {
+  position: relative;
+  background-color: #f8f9fa; /* Color del fondo sólido */
+}
+
+.wave-svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Sección de contenido */
+.solid-section {
+  background-color: #f8f9fa; /* Color sólido */
+  padding: 50px 20px;
+  text-align: center;
+}
