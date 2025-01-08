@@ -15,8 +15,8 @@ const Ministerio = () => {
       </ImagesBanner>
 
       {/* Información del Ministerio */}
-      <div className="p-8 bg-gray-100">
-        <div className="container mx-auto">
+      <div className=" bg-gray-100">
+        <div className="p-8">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Somos la Iglesia de Cristo Ebenezer Honduras
           </h1>
@@ -70,21 +70,38 @@ const Ministerio = () => {
                 height="100%"
                 allowFullScreen
                 loading="lazy"
-                className="rounded-lg shadow-lg"
-              ></iframe>
+                className="rounded-lg shadow-lg"></iframe>
             </div>
             <div className="text-center">
               <a
                 href="https://maps.google.com/?q=Tegucigalpa,Honduras"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 text-lg font-semibold"
-              >
+                className="text-blue-600 hover:text-blue-800 text-lg font-semibold">
                 Ver en Google Maps
               </a>
             </div>
           </div>
+          {/*  */}
         </div>
+        {/* Image Banner 2 */}
+        <div style={{ marginTop: "100px", marginBottom: "100px" }}>
+          <div
+            className="hero-section h-5/6 flex items-center justify-center text-center"
+            style={{ backgroundImage: `url(/Covers/ministerio.jpg)` }}>
+            <div className="hero-content z-10">
+              <h1 className="text-white text-3xl md:text-5xl font-bold leading-snug">
+                ¡<span className="text-4xl md:text-6xl">Somos</span> una Iglesia
+                <span className="text-4xl md:text-6xl"> Generacional</span>
+                ,
+                <br />
+                <span className="text-4xl md:text-6xl">Prosperados</span> por la
+                <span className="text-4xl md:text-6xl "> Palabra</span>!
+              </h1>
+            </div>
+          </div>
+        </div>
+        {/*  */}
       </div>
     </div>
   );
