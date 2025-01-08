@@ -28,6 +28,7 @@ function App() {
           <Route path="/contactar" element={<Contactar />} />
           <Route path="/envivo" element={<Envivo />} />
           <Route path="/devarea" element={<Devarea />} />
+          <Route path="*" element={<Inicio />} />
         </Routes>
       </NAVBAR>
       <Footer />

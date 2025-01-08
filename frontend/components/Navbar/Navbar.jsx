@@ -10,6 +10,8 @@ import {
   MenuOutlined,
 } from "@ant-design/icons";
 
+import "./styles.css";
+
 const { Header, Content } = Layout;
 
 const Navbar = ({ children }) => {
@@ -126,7 +128,12 @@ const Navbar = ({ children }) => {
 
       {/* Drawer para el menú en móviles */}
       <Drawer
-        title="Menú"
+        title={
+          <span
+            style={{ fontSize: "24px", fontWeight: "bold", color: "white" }}>
+            Menú
+          </span>
+        }
         placement="left"
         onClose={toggleDrawer}
         visible={drawerVisible}
@@ -135,27 +142,39 @@ const Navbar = ({ children }) => {
           background:
             "linear-gradient(to bottom, rgba(0, 33, 64, 0.9), rgba(0, 33, 64, 0.8))",
           color: "white",
-        }}>
+        }}
+        closeIcon={<span style={{ color: "white", fontSize: "16px" }}>×</span>} // Cambiar el color del icono de cerrar
+      >
         <Menu
           mode="vertical"
-          // theme="dark"
           style={{
             background: "transparent",
             border: "none",
-            color: "white",
+            color: "blue",
           }}>
           {menuItems.map((item) => (
             <Menu.Item
+              itemActiveBg="red"
               key={item.label}
               icon={item.icon}
+              className="text-2xl no-hover"
+              onClick={toggleDrawer}
               style={{
                 width: "100%",
-                background: "rgba(0, 33, 64, 0.8)",
                 margin: 0,
-                padding: "12px 24px",
+                padding: "34px 24px",
                 color: "white",
+                backgroundColor: "transparent",
+                userSelect: "none", // Evitar la selección de texto
               }}>
-              <Link to={item.to} style={{ color: "inherit" }}>
+              <Link
+                className="no-hover"
+                to={item.to}
+                style={{
+                  color: "inherit",
+                  textDecoration: "none", // Evitar subrayado
+                  outline: "none", // Eliminar el borde de selección
+                }}>
                 {item.label}
               </Link>
             </Menu.Item>

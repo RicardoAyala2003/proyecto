@@ -1,0 +1,11 @@
+.no-hover {
+  outline: none !important;
+  box-shadow: none !important; /* Eliminar el cuadro */
+}
+
+.no-hover:focus,
+.no-hover:active {
+  outline: none !important; /* Sin borde al enfocarse */
+  box-shadow: none !important; /* Sin cuadro al seleccionarse */
+  background: transparent !important; /* Asegurar que el fondo no cambie */
+}
