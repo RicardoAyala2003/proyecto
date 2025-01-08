@@ -25,7 +25,7 @@ function App() {
           <Route path="/multimedia" element={<Multimedia />} />
           <Route path="/aportaciones" element={<Aportaciones />} />
           <Route path="/orar" element={<Orar />} />
-          <Route path="/contactar" element={<Contactar />} />
+          <Route path="/contacto" element={<Contactar />} />
           <Route path="/envivo" element={<Envivo />} />
           <Route path="/devarea" element={<Devarea />} />
           <Route path="*" element={<Inicio />} />
