@@ -9,7 +9,7 @@ const HomePage = (props) => {
         className="hero-section h-screen"
         style={{ backgroundImage: `url(${props.image})` }}>
         <div className="hero-content z-10">
-          <h1 className="text-white text-5xl font-bold">{props.title}</h1>
+          <h1 className="text-white text-6xl font-bold">{props.title}</h1>
         </div>
         {/* Degradado transparente */}
         <div className="gradient-overlay"></div>

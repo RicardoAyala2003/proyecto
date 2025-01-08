@@ -22,15 +22,18 @@ const Inicio = () => {
   return (
     <div>
       <ImagesBanner
-        title="Bienvenido"
+        title="¡Bienvenido!"
         image="/Covers/inicio2.jpg"
         overlayMargin={48}>
         <div className="w-screen  justify-center items-center z-10">
           <div className="flex justify-center items-center z-10">
-            <HomeGallery />
+            <div style={{ marginTop: "100px" }}>
+              <HomeGallery />
+            </div>
           </div>
         </div>
       </ImagesBanner>
+
       <h1 className="text-3xl font-bold text-center">
         Bienvenido a la Página de Inicio
       </h1>

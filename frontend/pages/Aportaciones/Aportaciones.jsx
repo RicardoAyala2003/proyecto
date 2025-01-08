@@ -1,10 +1,13 @@
 import React from "react";
+import ImagesBanner from "../../components/ImagesBanner/ImagesBanner";
 
 const Aportaciones = () => {
   return (
     <div>
-      <h1>Aportaciones</h1>
-      <p>Bienvenido a la página de Aportaciones.</p>
+      <ImagesBanner
+        title="Aportaciones"
+        image="/Covers/aportaciones.jpg"
+        overlayMargin={48}></ImagesBanner>
     </div>
   );
 };
