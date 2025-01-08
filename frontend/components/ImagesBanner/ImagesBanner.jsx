@@ -7,7 +7,7 @@ const HomePage = (props) => {
       <div className="homepage">
         {/* Sección inicial con imagen de fondo */}
         <div
-          className="hero-section max-h-screen "
+          className="hero-section"
           style={{ backgroundImage: `url(${props.image})` }}>
           <div className="hero-content z-10">
             <h1 className="text-white text-6xl font-bold">{props.title}</h1>
