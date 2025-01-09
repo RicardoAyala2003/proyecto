@@ -87,7 +87,7 @@ const Ministerio = () => {
         {/* Image Banner 2 */}
         <div style={{ marginTop: "100px", marginBottom: "100px" }}>
           <div
-            className="hero-section h-5/6 flex items-center justify-center text-center"
+            className="sub-section flex items-center justify-center text-center"
             style={{ backgroundImage: `url(/Covers/ministerio.jpg)` }}>
             <div className="hero-content z-10">
               <h1 className="text-white text-3xl md:text-5xl font-bold leading-snug">

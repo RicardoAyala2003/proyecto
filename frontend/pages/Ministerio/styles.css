@@ -1,0 +1,15 @@
+/* Estilos para la sección inicial */
+.sub-section {
+    background-size: cover;
+    background-position: top;
+    height: 85vh;
+    /* min-height: 60vh; */
+  
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Clave para posicionar elementos hijos */
+    overflow: hidden; /* Asegura que el contenido no desborde */
+  }
+  

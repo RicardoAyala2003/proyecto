@@ -25,7 +25,7 @@ const images = [
 
 const HomeGallery = () => {
   return (
-    <div className="flex justify-center max-w-screen items-center">
+    <div className="flex justify-center w-full  items-center">
       <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full w-full ">
         {/* Left Top */}
         <div className="mt-12 flex items-end justify-end transform transition-transform duration-300 hover:scale-105">

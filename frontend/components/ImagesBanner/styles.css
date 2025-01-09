@@ -6,7 +6,10 @@
 .hero-section {
   background-size: cover;
   background-position: top;
-  height: 100vh;
+  height: 100vw;
+  min-height: 60vh;
+
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +69,7 @@
   display: flex;
   /* justify-content: center; Alinear componentes al centro */
   align-items: flex-start;
-  padding: 20px;
+  /* padding: 20px; */
   /* Espaciado opcional */
   box-sizing: border-box;
 }
