@@ -1,25 +1,58 @@
 import React from "react";
-import { Form, Input, Select, DatePicker, Button, Checkbox } from "antd";
+import { Form, Input, Select, DatePicker, Button, Checkbox, message } from "antd";
+import emailjs from "emailjs-com"; // Importa emailjs
 import ImagesBanner from "../../../components/ImagesBanner/ImagesBanner";
-
 const { Option } = Select;
 
 const RegistrationPage = () => {
+  // Configura la función que se ejecutará cuando se envíe el formulario
   const onFinish = (values) => {
-    console.log("Success:", values);
+    // Prepara los datos del formulario
+    if (!values.consent) {
+      message.error("Debes aceptar los términos para continuar.");
+      return; // No enviamos el correo si el consentimiento no está marcado
+    }
+
+    const formData = {
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      country: values.country,
+      location: values.location,
+      gender: values.gender,
+      maritalStatus: values.maritalStatus,
+      dob: values.dob.format("DD/MM/YYYY"), // Convierte la fecha de nacimiento a formato de cadena
+    };
+
+    // Envía los datos del formulario a través de EmailJS
+    emailjs
+      .send(
+        "service_obtrgew",  // Reemplaza con tu Service ID de EmailJS
+        "template_ludl0w4",  // Reemplaza con tu Template ID de EmailJS
+        formData,            // Datos del formulario
+        "n5qQRXbDPKrostj0M"       // Reemplaza con tu User ID de EmailJS
+      )
+      .then(
+        (response) => {
+          message.success("¡Formulario enviado con éxito!"); // Muestra mensaje de éxito
+        },
+        (error) => {
+          message.error("Hubo un error al enviar el formulario: " + error.text); // Muestra mensaje de error
+        }
+      );
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
+    message.error("Por favor, completa los campos requeridos."); // Muestra mensaje de error si falla la validación
   };
 
-  const dominantColor = "#193753"; // Converted RGB to HEX
+  const dominantColor = "#193753"; // Color principal
 
   return (
     <>
-      {" "}
-      <ImagesBanner
-        title="Sé parte de una gran familia"
+          <ImagesBanner
+        title="Se parte de una gran familia"
         image="/Covers/registro.jpg"
         overlayMargin={300}>
         <div className="w-screen  justify-center items-center z-10">
@@ -28,30 +61,22 @@ const RegistrationPage = () => {
           </div>
         </div>
       </ImagesBanner>
-      {/* Register Form */}
-      <div
-        className="p-8"
-        style={{ paddingTop: "300px", paddingBottom: "200px" }}>
-        <div
-          className="min-h-screen flex items-center justify-center"
-          // style={{ backgroundColor: dominantColor }}
-        >
+      <div className="p-8" style={{ paddingTop: "300px", paddingBottom: "200px" }}>
+        <div className="min-h-screen flex items-center justify-center">
           <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-xl">
-            <h1
-              className="text-3xl font-extrabold text-center mb-4"
-              style={{ color: dominantColor }}>
+            <h1 className="text-3xl font-extrabold text-center mb-4" style={{ color: dominantColor }}>
               ¡Tenemos un lugar para ti!
             </h1>
             <p className="text-center mb-6" style={{ color: dominantColor }}>
-              Queremos darte la bienvenida a la familia de Dios y a Ebenezer
-              Honduras.
+              Queremos darte la bienvenida a la familia de Dios y a Ebenezer Honduras.
             </p>
             <Form
               name="registration"
               layout="vertical"
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
               {[
                 {
                   label: "¿Cuál es tu nombre?",
@@ -84,7 +109,8 @@ const RegistrationPage = () => {
                       required: true,
                       message: `Por favor, ingresa ${label.toLowerCase()}.`,
                     },
-                  ]}>
+                  ]}
+                >
                   <Input
                     type={type}
                     placeholder={placeholder}
@@ -101,10 +127,9 @@ const RegistrationPage = () => {
                     required: true,
                     message: "Por favor, selecciona tu ubicación.",
                   },
-                ]}>
-                <Select
-                  placeholder="Selecciona una opción"
-                  className="rounded-md">
+                ]}
+              >
+                <Select placeholder="Selecciona una opción" className="rounded-md">
                   <Option value="iglesia">Desde la iglesia</Option>
                   <Option value="online">En línea</Option>
                 </Select>
@@ -115,10 +140,9 @@ const RegistrationPage = () => {
                 name="gender"
                 rules={[
                   { required: true, message: "Por favor, selecciona tu sexo." },
-                ]}>
-                <Select
-                  placeholder="Selecciona una opción"
-                  className="rounded-md">
+                ]}
+              >
+                <Select placeholder="Selecciona una opción" className="rounded-md">
                   <Option value="male">Masculino</Option>
                   <Option value="female">Femenino</Option>
                   <Option value="other">Otro</Option>
@@ -133,10 +157,9 @@ const RegistrationPage = () => {
                     required: true,
                     message: "Por favor, selecciona tu estado civil.",
                   },
-                ]}>
-                <Select
-                  placeholder="Selecciona una opción"
-                  className="rounded-md">
+                ]}
+              >
+                <Select placeholder="Selecciona una opción" className="rounded-md">
                   <Option value="single">Soltero</Option>
                   <Option value="married">Casado</Option>
                   <Option value="other">Otro</Option>
@@ -152,7 +175,8 @@ const RegistrationPage = () => {
                     message: "Por favor, ingresa tu fecha de nacimiento.",
                   },
                 ]}
-                className="col-span-2">
+                className="col-span-2"
+              >
                 <DatePicker
                   className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
                   placeholder="dd/mm/aaaa"
@@ -166,7 +190,8 @@ const RegistrationPage = () => {
                 rules={[
                   { required: true, message: "Debes aceptar para continuar." },
                 ]}
-                className="col-span-2">
+                className="col-span-2"
+              >
                 <Checkbox style={{ color: dominantColor }}>
                   Doy consentimiento para que la Iglesia de Cristo Ebenezer
                   obtenga mis datos para ponerse en contacto conmigo.
@@ -181,7 +206,8 @@ const RegistrationPage = () => {
                   style={{
                     backgroundColor: dominantColor,
                     borderColor: dominantColor,
-                  }}>
+                  }}
+                >
                   Registrarme
                 </Button>
               </Form.Item>
