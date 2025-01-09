@@ -52,7 +52,7 @@ const RegistrationPage = () => {
   return (
     <>
           <ImagesBanner
-        title="Sé parte de una gran familia"
+        title="Se parte de una gran familia"
         image="/Covers/registro.jpg"
         overlayMargin={300}>
         <div className="w-screen  justify-center items-center z-10">
