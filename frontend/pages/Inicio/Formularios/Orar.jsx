@@ -1,11 +1,38 @@
 import React from "react";
 import { Form, Input, Button, Checkbox, message } from "antd";
 import ImagesBanner from "../../../components/ImagesBanner/ImagesBanner";
+import emailjs from 'emailjs-com'; // Importa EmailJS
 
 const Orar = () => {
   const onFinish = (values) => {
-    console.log("Success:", values);
-    message.success("¡Tu petición ha sido enviada con éxito!");
+    console.log("Success:", values); // Manteniendo tu console.log original.
+
+    // Prepara los datos para enviar por EmailJS
+    const formData = {
+      prayerRequest: values.prayerRequest,
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+    };
+
+    // Enviar el correo usando EmailJS
+    emailjs
+      .send(
+        "service_obtrgew",  // Reemplaza con tu Service ID de EmailJS
+        "template_xfmsw9i", // Reemplaza con tu Template ID de EmailJS
+        formData,           // Datos del formulario
+        "n5qQRXbDPKrostj0M" // Reemplaza con tu Public Key de EmailJS
+      )
+      .then(
+        (response) => {
+          message.success("¡Petición enviada con éxito! Nos pondremos en contacto contigo pronto.");
+          console.log("Correo enviado con éxito:", response); // Mensaje adicional para depuración.
+        },
+        (error) => {
+          message.error("Hubo un error al enviar tu petición: " + error.text);
+          console.error("Error al enviar correo:", error); // Mensaje adicional para depuración.
+        }
+      );
   };
 
   const onFinishFailed = (errorInfo) => {
