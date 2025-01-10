@@ -6,7 +6,10 @@ const Ministerio = () => {
   return (
     <div>
       {/* Banner con título e imagen */}
-      <ImagesBanner title="Ministerio" image="/Covers/ministerio.jpg">
+      <ImagesBanner
+        title="Ministerio"
+        image="/Covers/ministerio.jpg"
+        overlayMargin={200}>
         <div className="w-screen justify-center items-center z-10">
           <div className="flex justify-center items-center z-10">
             <MinisterioGallery />
