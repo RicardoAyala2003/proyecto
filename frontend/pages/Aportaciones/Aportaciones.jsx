@@ -72,12 +72,12 @@ const Aportaciones = () => {
   return (
     <div style={{ padding: "20px" }}>
       {/* Imagen y descripción inicial */}
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
-        <img
+      <div style={{ textAlign: "center", marginBottom: "20px" , marginTop: "100px"}}>
+       { /*<img
           src="https://via.placeholder.com/800x300"
           alt="Uso de donativos"
           style={{ width: "100%", maxWidth: "800px", borderRadius: "8px" }}
-        />
+        />*/}
         <Title level={3} style={{ marginTop: "20px", color: dominantColor }}>
           Así usamos tus aportaciones
         </Title>

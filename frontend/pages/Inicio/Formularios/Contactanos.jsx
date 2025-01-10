@@ -7,7 +7,11 @@ const Contactenos = () => {
   return (
     <div
       className="min-h-screen p-8"
-      style={{ backgroundColor: dominantColor, color: "white" }}>
+      style={{
+        backgroundColor: dominantColor,
+        color: "white",
+        marginTop: "100px" 
+      }}>
       <h1 className="text-4xl font-extrabold text-center mb-6">Contáctanos</h1>
       <p className="text-center text-lg mb-8">
         Si tienes alguna pregunta o deseas ponerte en contacto con nosotros,
@@ -16,7 +20,9 @@ const Contactenos = () => {
 
       {/* Información de contacto */}
       <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800 mb-8">
-        <h2 className="text-2xl font-semibold" style={{ color: dominantColor }}>
+        <h2
+          className="text-2xl font-semibold"
+          style={{ color: dominantColor }}>
           Información de Contacto
         </h2>
         <p className="text-lg text-gray-700 mt-2">
@@ -34,7 +40,9 @@ const Contactenos = () => {
 
       {/* Google Maps */}
       <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800 mb-8">
-        <h2 className="text-2xl font-semibold" style={{ color: dominantColor }}>
+        <h2
+          className="text-2xl font-semibold"
+          style={{ color: dominantColor }}>
           Encuéntranos en Google Maps
         </h2>
         <p className="text-lg text-gray-700 mt-2">
@@ -102,15 +110,3 @@ const Contactenos = () => {
 };
 
 export default Contactenos;
-
-// const Contactenos = () => {
-//   const dominantColor = "#193753"; // Color dominante
-
-//   return (
-//     <div
-//       className="min-h-screen p-8"
-//       style={{ backgroundColor: dominantColor, color: "white" }}></div>
-//   );
-// };
-
-// export default Contactenos;

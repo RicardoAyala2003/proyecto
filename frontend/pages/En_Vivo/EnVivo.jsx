@@ -6,9 +6,9 @@ const EnVivo = () => {
 
   // Array of video URLs
   const videos = [
-    "https://www.youtube.com/embed/iiYmbRvMylw?si=iRyzDHaLpi-yNWXl",
+    "https://www.youtube.com/embed/6KpvuUS4",
     "https://www.youtube.com/embed/6KpvuUS4U8w?si=EpmVLItbHsNjLezp",
-    "https://www.youtube.com/embed/TE7buxmJPqk?si=HNWs8ewtd5_lT7Rx",
+
   ];
 
   // Function to go to the next video
@@ -26,7 +26,7 @@ const EnVivo = () => {
   };
 
   return (
-    <div className="flex justify-center items-center -mt-10 min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center -mt-10 min-h-screen bg-gray-100" style={{ marginTop: "100px" }}>
       <div className="bg-white p-4 rounded-lg shadow-lg max-w-7xl w-full">
         {/* Title */}
         <h2 className="text-2xl font-bold text-center mb-6">Últimos Videos</h2>
