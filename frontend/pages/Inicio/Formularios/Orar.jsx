@@ -4,6 +4,9 @@ import ImagesBanner from "../../../components/ImagesBanner/ImagesBanner";
 import emailjs from 'emailjs-com'; // Importa EmailJS
 
 const Orar = () => {
+  // Usa Form.useForm para obtener la instancia del formulario
+  const [form] = Form.useForm();
+
   const onFinish = (values) => {
     console.log("Success:", values); // Manteniendo tu console.log original.
 
@@ -26,6 +29,7 @@ const Orar = () => {
       .then(
         (response) => {
           message.success("¡Petición enviada con éxito! Nos pondremos en contacto contigo pronto.");
+          form.resetFields(); // Restablece los campos después de enviar con éxito
           console.log("Correo enviado con éxito:", response); // Mensaje adicional para depuración.
         },
         (error) => {
@@ -76,6 +80,7 @@ const Orar = () => {
               layout="vertical"
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
+              form={form} // Asocia el formulario a la instancia
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {/* Campo de petición */}

@@ -25,7 +25,7 @@ const Inicio = () => {
         title="Bienvenido"
         image="/Covers/inicio2.jpg"
         overlayMargin={48}>
-        <div className="w-screen px-10  justify-center items-center z-10">
+        <div className="w-screen px-10 justify-center items-center z-10">
           <div className="flex justify-center items-center z-10">
             <HomeGallery />
           </div>
@@ -38,52 +38,82 @@ const Inicio = () => {
         <p className="text-center text-lg mt-4">
           Esta es la página de inicio de nuestro proyecto.
         </p>
+
+        {/* Card 1: ¿Eres nuevo? */}
         <div className="flex justify-center mt-8">
-          <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-2xl text-center">
-            <h2 className="text-xl font-semibold mb-4 text-[#002140]">
-              ¿Eres nuevo?
-            </h2>
-            <p className="mb-4 text-gray-700">
-              Te invitamos a registrarte con nosotros y así formar parte de
-              nuestra comunidad de manera presencial o en línea.
-            </p>
-            <button
-              className="bg-[#002140] text-white px-4 py-2 rounded hover:bg-[#004080] transition"
-              onClick={handleRegisterClick}>
-              Regístrate
-            </button>
+          <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center">
+            <img
+              src="/Covers/img.jpg"
+              alt="Eres nuevo"
+              className="w-40 h-40 object-cover rounded-lg"
+            />
+            <div className="w-px bg-gray-300 mx-8 h-full"></div>
+            <div className="text-left">
+              <h2 className="text-2xl font-semibold mb-4 text-[#002140]">
+                ¿Eres nuevo?
+              </h2>
+              <p className="mb-4 text-gray-700">
+                Te invitamos a registrarte con nosotros y así formar parte de
+                nuestra comunidad de manera presencial o en línea.
+              </p>
+              <button
+                className="bg-[#002140] text-white px-6 py-3 rounded hover:bg-[#004080] transition"
+                onClick={handleRegisterClick}>
+                Regístrate
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Card 2: ¿Oramos por ti? */}
         <div className="flex justify-center mt-8">
-          <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-2xl text-center">
-            <h2 className="text-xl font-semibold mb-4 text-[#002140]">
-              ¿Oramos por ti?
-            </h2>
-            <p className="mb-4 text-gray-700">
-              Si tienes alguna petición, puedes enviarnos un mensaje de manera
-              confidencial y con gusto estaremos orando por ti.
-            </p>
-            <button
-              className="bg-[#002140] text-white px-4 py-2 rounded hover:bg-[#004080] transition"
-              onClick={handlePrayerClick}>
-              Orar por mí
-            </button>
+          <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center">
+            <img
+              src="/Covers/img.jpg"
+              alt="Oramos por ti"
+              className="w-40 h-40 object-cover rounded-lg"
+            />
+            <div className="w-px bg-gray-300 mx-8 h-full"></div>
+            <div className="text-left">
+              <h2 className="text-2xl font-semibold mb-4 text-[#002140]">
+                ¿Oramos por ti?
+              </h2>
+              <p className="mb-4 text-gray-700">
+                Si tienes alguna petición, puedes enviarnos un mensaje de manera
+                confidencial y con gusto estaremos orando por ti.
+              </p>
+              <button
+                className="bg-[#002140] text-white px-6 py-3 rounded hover:bg-[#004080] transition"
+                onClick={handlePrayerClick}>
+                Orar por mí
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Card 3: Contáctanos */}
         <div className="flex justify-center mt-8">
-          <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-2xl text-center">
-            <h2 className="text-xl font-semibold mb-4 text-[#002140]">
-              Contáctanos
-            </h2>
-            <p className="mb-4 text-gray-700">
-              ¿Tienes alguna pregunta o quieres contactarte con nosotros?
-              Envíanos un mensaje y un miembro de nuestro equipo te responderá.
-            </p>
-            <button
-              className="bg-[#002140] text-white px-4 py-2 rounded hover:bg-[#004080] transition"
-              onClick={handleContactClick}>
-              Contáctanos
-            </button>
+          <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center">
+            <img
+              src="/Covers/img.jpg"
+              alt="Contáctanos"
+              className="w-40 h-40 object-cover rounded-lg"
+            />
+            <div className="w-px bg-gray-300 mx-8 h-full"></div>
+            <div className="text-left">
+              <h2 className="text-2xl font-semibold mb-4 text-[#002140]">
+                Contáctanos
+              </h2>
+              <p className="mb-4 text-gray-700">
+                ¿Tienes alguna pregunta o quieres contactarte con nosotros?
+                Envíanos un mensaje y un miembro de nuestro equipo te responderá.
+              </p>
+              <button
+                className="bg-[#002140] text-white px-6 py-3 rounded hover:bg-[#004080] transition"
+                onClick={handleContactClick}>
+                Contáctanos
+              </button>
+            </div>
           </div>
         </div>
       </div>

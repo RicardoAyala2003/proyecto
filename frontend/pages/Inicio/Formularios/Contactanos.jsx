@@ -8,12 +8,21 @@ const Contactenos = () => {
     <div
       className="min-h-screen p-8"
       style={{
-        backgroundColor: dominantColor,
+        background: `linear-gradient(to bottom, white, ${dominantColor})`,
         color: "white",
-        marginTop: "100px" 
-      }}>
-      <h1 className="text-4xl font-extrabold text-center mb-6">Contáctanos</h1>
-      <p className="text-center text-lg mb-8">
+        marginTop: "100px",
+      }}
+    >
+      <h1
+        className="text-4xl font-extrabold text-center mb-6"
+        style={{ color: dominantColor }}
+      >
+        Contáctanos
+      </h1>
+      <p
+        className="text-center text-lg mb-8"
+        style={{ color: dominantColor }}
+      >
         Si tienes alguna pregunta o deseas ponerte en contacto con nosotros,
         ¡estamos aquí para ayudarte!
       </p>
@@ -22,7 +31,8 @@ const Contactenos = () => {
       <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800 mb-8">
         <h2
           className="text-2xl font-semibold"
-          style={{ color: dominantColor }}>
+          style={{ color: dominantColor }}
+        >
           Información de Contacto
         </h2>
         <p className="text-lg text-gray-700 mt-2">
@@ -42,7 +52,8 @@ const Contactenos = () => {
       <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800 mb-8">
         <h2
           className="text-2xl font-semibold"
-          style={{ color: dominantColor }}>
+          style={{ color: dominantColor }}
+        >
           Encuéntranos en Google Maps
         </h2>
         <p className="text-lg text-gray-700 mt-2">
@@ -53,7 +64,8 @@ const Contactenos = () => {
           href="https://maps.google.com/?q=Calle+Ficticia+123,+Barrio+Inventado,+Ciudad+Ejemplo"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800">
+          className="text-blue-600 hover:text-blue-800"
+        >
           Ver en Google Maps
         </a>
       </div>
@@ -62,7 +74,8 @@ const Contactenos = () => {
       <div className="bg-white p-6 rounded-lg shadow-lg text-center text-gray-800">
         <h2
           className="text-2xl font-semibold mb-4"
-          style={{ color: dominantColor }}>
+          style={{ color: dominantColor }}
+        >
           Síguenos en redes sociales
         </h2>
         <div className="flex justify-center space-x-6">
@@ -70,28 +83,32 @@ const Contactenos = () => {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800">
+            className="text-blue-600 hover:text-blue-800"
+          >
             <FaFacebook size={40} />
           </a>
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-600">
+            className="text-blue-400 hover:text-blue-600"
+          >
             <FaTwitter size={40} />
           </a>
           <a
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-pink-600 hover:text-pink-800">
+            className="text-pink-600 hover:text-pink-800"
+          >
             <FaInstagram size={40} />
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-700 hover:text-blue-900">
+            className="text-blue-700 hover:text-blue-900"
+          >
             <FaLinkedin size={40} />
           </a>
         </div>

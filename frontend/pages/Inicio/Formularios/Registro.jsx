@@ -5,6 +5,9 @@ import ImagesBanner from "../../../components/ImagesBanner/ImagesBanner";
 const { Option } = Select;
 
 const RegistrationPage = () => {
+  // Crea la referencia al formulario
+  const [form] = Form.useForm(); // Nueva línea para obtener la instancia del formulario
+
   // Configura la función que se ejecutará cuando se envíe el formulario
   const onFinish = (values) => {
     // Prepara los datos del formulario
@@ -35,6 +38,7 @@ const RegistrationPage = () => {
       .then(
         (response) => {
           message.success("¡Formulario enviado con éxito!"); // Muestra mensaje de éxito
+          form.resetFields(); // Resetea los campos del formulario después de enviarlo con éxito
         },
         (error) => {
           message.error("Hubo un error al enviar el formulario: " + error.text); // Muestra mensaje de error
@@ -51,7 +55,7 @@ const RegistrationPage = () => {
 
   return (
     <>
-          <ImagesBanner
+      <ImagesBanner
         title="Se parte de una gran familia"
         image="/Covers/registro.jpg"
         overlayMargin={300}>
@@ -71,13 +75,14 @@ const RegistrationPage = () => {
               Queremos darte la bienvenida a la familia de Dios y a Ebenezer Honduras.
             </p>
             <Form
+              form={form} // Asocia la referencia del formulario
               name="registration"
               layout="vertical"
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              {[
+              {[ 
                 {
                   label: "¿Cuál es tu nombre?",
                   name: "name",
@@ -104,12 +109,10 @@ const RegistrationPage = () => {
                   key={name}
                   label={label}
                   name={name}
-                  rules={[
-                    {
-                      required: true,
-                      message: `Por favor, ingresa ${label.toLowerCase()}.`,
-                    },
-                  ]}
+                  rules={[{
+                    required: true,
+                    message: `Por favor, ingresa ${label.toLowerCase()}.`,
+                  }]}
                 >
                   <Input
                     type={type}
@@ -122,12 +125,10 @@ const RegistrationPage = () => {
               <Form.Item
                 label="¿De dónde te conectaste con nosotros?"
                 name="location"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor, selecciona tu ubicación.",
-                  },
-                ]}
+                rules={[{
+                  required: true,
+                  message: "Por favor, selecciona tu ubicación.",
+                }]}
               >
                 <Select placeholder="Selecciona una opción" className="rounded-md">
                   <Option value="iglesia">Desde la iglesia</Option>
@@ -138,9 +139,7 @@ const RegistrationPage = () => {
               <Form.Item
                 label="Sexo"
                 name="gender"
-                rules={[
-                  { required: true, message: "Por favor, selecciona tu sexo." },
-                ]}
+                rules={[{ required: true, message: "Por favor, selecciona tu sexo." }]}
               >
                 <Select placeholder="Selecciona una opción" className="rounded-md">
                   <Option value="male">Masculino</Option>
@@ -152,12 +151,10 @@ const RegistrationPage = () => {
               <Form.Item
                 label="¿Cuál es tu estado civil?"
                 name="maritalStatus"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor, selecciona tu estado civil.",
-                  },
-                ]}
+                rules={[{
+                  required: true,
+                  message: "Por favor, selecciona tu estado civil.",
+                }]}
               >
                 <Select placeholder="Selecciona una opción" className="rounded-md">
                   <Option value="single">Soltero</Option>
@@ -169,12 +166,10 @@ const RegistrationPage = () => {
               <Form.Item
                 label="Fecha de Nacimiento"
                 name="dob"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor, ingresa tu fecha de nacimiento.",
-                  },
-                ]}
+                rules={[{
+                  required: true,
+                  message: "Por favor, ingresa tu fecha de nacimiento.",
+                }]}
                 className="col-span-2"
               >
                 <DatePicker
@@ -187,14 +182,14 @@ const RegistrationPage = () => {
               <Form.Item
                 name="consent"
                 valuePropName="checked"
-                rules={[
-                  { required: true, message: "Debes aceptar para continuar." },
-                ]}
+                rules={[{
+                  required: true,
+                  message: "Debes aceptar para continuar.",
+                }]}
                 className="col-span-2"
               >
                 <Checkbox style={{ color: dominantColor }}>
-                  Doy consentimiento para que la Iglesia de Cristo Ebenezer
-                  obtenga mis datos para ponerse en contacto conmigo.
+                  Doy consentimiento para que la Iglesia de Cristo Ebenezer obtenga mis datos para ponerse en contacto conmigo.
                 </Checkbox>
               </Form.Item>
 
