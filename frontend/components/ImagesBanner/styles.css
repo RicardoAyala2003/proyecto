@@ -1,5 +1,7 @@
 .homepage {
   font-family: "Arial", sans-serif;
+
+  /* max-height: 100vh; */
 }
 
 /* Estilos para la sección inicial */
@@ -8,7 +10,11 @@
   background-position: top;
   height: 100vw;
   min-height: 60vh;
+<<<<<<< Updated upstream
 
+=======
+  max-height:inherit;
+>>>>>>> Stashed changes
 
   display: flex;
   justify-content: center;

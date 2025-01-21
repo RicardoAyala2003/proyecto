@@ -1,13 +1,23 @@
+<<<<<<< Updated upstream
 /* 
 .homepage {
+=======
+/* .homepage {
+>>>>>>> Stashed changes
   font-family: "Arial", sans-serif;
 }
 
 /* Sección inicial 
 .hero-section {
+<<<<<<< Updated upstream
   background-image: url("/Covers/gg.webp"); /* Imagen de fondo
   background-size: cover;
   /* background-color: red; 
+=======
+  background-image: url("/Covers/gg.webp"); /* Imagen de fondo 
+  background-size: cover;
+  /* background-color: red;
+>>>>>>> Stashed changes
   background-position: top;
   /* height: 100%; 
   /* width: 100vw; 
@@ -18,7 +28,11 @@
 }
 
 .hero-content h1 {
+<<<<<<< Updated upstream
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombreado para mejor visibilidad
+=======
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombreado para mejor visibilidad 
+>>>>>>> Stashed changes
 }
 
 /* Fondo ondulado 
@@ -37,6 +51,10 @@
   background-color: #f8f9fa; /* Color sólido 
   padding: 50px 20px;
   text-align: center;
+<<<<<<< Updated upstream
 }
 
 */
+=======
+} */
+>>>>>>> Stashed changes
