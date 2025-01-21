@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Importa useLocation
 import { Layout, Drawer, Menu } from "antd";
 import {
   HomeOutlined,
@@ -18,10 +18,7 @@ const Navbar = ({ children }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [drawerVisible, setDrawerVisible] = useState(false);
-
-  // Variables para detectar el swipe
-  const [startX, setStartX] = useState(0);
-  const [endX, setEndX] = useState(0);
+  const location = useLocation(); // Hook para obtener la ubicación actual
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -31,35 +28,16 @@ const Navbar = ({ children }) => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
-    // Eventos touch para detectar el swipe
-    const handleTouchStart = (e) => setStartX(e.touches[0].clientX);
-
-    const handleTouchMove = (e) => setEndX(e.touches[0].clientX);
-
-    const handleTouchEnd = () => {
-      const swipeDistance = startX - endX;
-
-      if (swipeDistance < -50) {
-        // Swipe de izquierda a derecha detectado
-        setDrawerVisible(true);
-      } else if (swipeDistance > 50 && drawerVisible) {
-        // Swipe de derecha a izquierda detectado
-        setDrawerVisible(false);
-      }
-    };
-
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove);
-    window.addEventListener("touchend", handleTouchEnd);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [startX, endX, drawerVisible]);
+  }, []);
+
+  // Efecto para hacer scroll hacia arriba al cambiar de ruta
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
 
   const toggleDrawer = () => setDrawerVisible(!drawerVisible);
 
@@ -87,7 +65,6 @@ const Navbar = ({ children }) => {
         <div className="container mx-auto flex items-center justify-between h-full">
           {isMobile ? (
             <>
-              {/* Icono del menú hamburguesa */}
               <MenuOutlined
                 onClick={toggleDrawer}
                 style={{
@@ -96,7 +73,6 @@ const Navbar = ({ children }) => {
                   cursor: "pointer",
                 }}
               />
-              {/* Logo Centrado */}
               <div className="absolute left-1/2 transform -translate-x-1/2">
                 <Link to="/">
                   <img
@@ -113,7 +89,6 @@ const Navbar = ({ children }) => {
             </>
           ) : (
             <>
-              {/* Menú izquierdo */}
               <nav className="flex items-center text-white font-medium text-lg space-x-6">
                 {menuItems.slice(0, 3).map((item) => (
                   <Link
@@ -125,7 +100,6 @@ const Navbar = ({ children }) => {
                   </Link>
                 ))}
               </nav>
-              {/* Logo Centrado */}
               <div className="absolute left-1/2 transform -translate-x-1/2">
                 <Link to="/">
                   <img
@@ -139,7 +113,6 @@ const Navbar = ({ children }) => {
                   />
                 </Link>
               </div>
-              {/* Menú Derecho */}
               <nav className="flex items-center text-white font-medium text-lg space-x-6">
                 {menuItems.slice(3).map((item) => (
                   <Link
@@ -156,7 +129,6 @@ const Navbar = ({ children }) => {
         </div>
       </Header>
 
-      {/* Drawer para el menú en móviles */}
       <Drawer
         title={
           <span
@@ -173,8 +145,7 @@ const Navbar = ({ children }) => {
             "linear-gradient(to bottom, rgba(0, 33, 64, 0.9), rgba(0, 33, 64, 0.8))",
           color: "white",
         }}
-        closeIcon={<span style={{ color: "white", fontSize: "16px" }}>×</span>} // Cambiar el color del icono de cerrar
-      >
+        closeIcon={<span style={{ color: "white", fontSize: "16px" }}>×</span>}>
         <Menu
           mode="vertical"
           style={{
@@ -184,7 +155,6 @@ const Navbar = ({ children }) => {
           }}>
           {menuItems.map((item) => (
             <Menu.Item
-              itemActiveBg="red"
               key={item.label}
               icon={item.icon}
               className="text-2xl no-hover"
@@ -195,15 +165,15 @@ const Navbar = ({ children }) => {
                 padding: "34px 24px",
                 color: "white",
                 backgroundColor: "transparent",
-                userSelect: "none", // Evitar la selección de texto
+                userSelect: "none",
               }}>
               <Link
                 className="no-hover"
                 to={item.to}
                 style={{
                   color: "inherit",
-                  textDecoration: "none", // Evitar subrayado
-                  outline: "none", // Eliminar el borde de selección
+                  textDecoration: "none",
+                  outline: "none",
                 }}>
                 {item.label}
               </Link>
@@ -212,7 +182,6 @@ const Navbar = ({ children }) => {
         </Menu>
       </Drawer>
 
-      {/* Contenido */}
       <div className="bg-green-500">
         <Content>{children}</Content>
       </div>
