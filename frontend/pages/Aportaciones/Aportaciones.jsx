@@ -72,8 +72,13 @@ const Aportaciones = () => {
   return (
     <div style={{ padding: "20px" }}>
       {/* Imagen y descripción inicial */}
-      <div style={{ textAlign: "center", marginBottom: "20px" , marginTop: "100px"}}>
-       { /*<img
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
+          marginTop: "100px",
+        }}>
+        {/*<img
           src="https://via.placeholder.com/800x300"
           alt="Uso de donativos"
           style={{ width: "100%", maxWidth: "800px", borderRadius: "8px" }}
@@ -96,11 +101,7 @@ const Aportaciones = () => {
       </Divider>
       {/* ===================================================================================== */}
       {/* Cards con cuentas bancarias */}
-      <Row
-        style={{ marginBottom: "100px" }}
-        gutter={[16, 16]}
-        justify="center" // Centra las tarjetas
-      >
+      <Row style={{ marginBottom: "100px" }} gutter={[16, 16]} justify="center">
         {cuentasBancariasHonduras.map((cuenta, index) => (
           <Col key={index} xs={12} sm={8} md={6}>
             <Card
@@ -113,7 +114,9 @@ const Aportaciones = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                height: "180px", // Fija una altura mínima para evitar superposición
+                minHeight: "180px", // Altura mínima para evitar superposición
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Sombra suave
+                backgroundColor: "#fff", // Asegura que la tarjeta tenga un fondo blanco
               }}>
               {/* Imagen */}
               <img
@@ -138,7 +141,10 @@ const Aportaciones = () => {
               <Button
                 type="text"
                 style={{
-                  marginTop: "10px",
+                  position: "absolute", // Posiciona el botón relativo a la tarjeta
+                  bottom: "-10px", // Sobresale 10px de la tarjeta
+                  left: "50%", // Centra horizontalmente
+                  transform: "translateX(-50%)", // Ajusta la posición para centrar
                   backgroundColor: "#FFFACD",
                   borderRadius: "5px",
                   fontSize: "12px",
@@ -160,11 +166,7 @@ const Aportaciones = () => {
         Cuentas bancarias Estados Unidos
       </Divider>
       {/* ===================================================================================== */}
-      <Row
-        style={{ marginBottom: "100px" }}
-        gutter={[16, 16]}
-        justify="center" // Centra las tarjetas
-      >
+      <Row style={{ marginBottom: "100px" }} gutter={[16, 16]} justify="center">
         {cuentasBancariasEstadosUnidos.map((cuenta, index) => (
           <Col key={index} xs={12} sm={8} md={6}>
             <Card
@@ -177,7 +179,9 @@ const Aportaciones = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                height: "180px", // Fija una altura mínima para evitar superposición
+                minHeight: "180px", // Altura mínima para evitar superposición
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Sombra suave
+                backgroundColor: "#fff", // Asegura que la tarjeta tenga un fondo blanco
               }}>
               {/* Imagen */}
               <img
@@ -202,7 +206,10 @@ const Aportaciones = () => {
               <Button
                 type="text"
                 style={{
-                  marginTop: "10px",
+                  position: "absolute", // Posiciona el botón relativo a la tarjeta
+                  bottom: "-10px", // Sobresale 10px de la tarjeta
+                  left: "50%", // Centra horizontalmente
+                  transform: "translateX(-50%)", // Ajusta la posición para centrar
                   backgroundColor: "#FFFACD",
                   borderRadius: "5px",
                   fontSize: "12px",

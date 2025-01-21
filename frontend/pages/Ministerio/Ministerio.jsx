@@ -9,7 +9,7 @@ const Ministerio = () => {
       <ImagesBanner
         title="Ministerio"
         image="/Covers/ministerio.jpg"
-        overlayMargin={200}>
+        overlayMargin={48}>
         <div className="w-screen justify-center items-center z-10">
           <div className="flex justify-center items-center z-10">
             <MinisterioGallery />
@@ -19,31 +19,34 @@ const Ministerio = () => {
 
       {/* Información del Ministerio */}
       <div className=" bg-gray-100 ">
-        <div className="p-8">
-          <div className="w-10/12 align-center mx-auto">
-            <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-              Somos la Iglesia de Cristo Ebenezer Honduras
-            </h1>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-              {/* Imágenes flotantes */}
-              <div className="flex justify-center items-center space-x-4">
+        <div className="w-full align-center mx-auto">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            Somos la Iglesia de Cristo Ebenezer Honduras
+          </h1>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 w-full bg-blue-500">
+            {/* Imágenes flotantes */}
+            <div className="w-full bg-orange-500">
+              <div className="flex justify-center items-center bg-red-500 gap-4 flex-wrap">
                 <img
                   src="/Resources/Gallery/1.jpg"
                   alt="Imagen 1"
-                  className="w-48 h-32 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  className="w-full max-w-[30%] h-auto rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
                 />
                 <img
                   src="/Resources/Gallery/2.jpg"
                   alt="Imagen 2"
-                  className="w-48 h-32 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  className="w-full max-w-[30%] h-auto rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
                 />
                 <img
                   src="/Resources/Gallery/3.jpg"
                   alt="Imagen 3"
-                  className="w-48 h-32 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  className="w-full max-w-[30%] h-auto rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              {/* Descripción */}
+            </div>
+
+            {/* Descripción */}
+            <div className="p-8">
               <div className="text-gray-900 text-opacity-65 text-base font-semibold w-full">
                 <p className="mb-4">
                   Un hogar prosperado por la Palabra, que comprende la bendición

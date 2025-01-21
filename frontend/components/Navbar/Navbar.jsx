@@ -19,6 +19,10 @@ const Navbar = ({ children }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [drawerVisible, setDrawerVisible] = useState(false);
 
+  // Variables para detectar el swipe
+  const [startX, setStartX] = useState(0);
+  const [endX, setEndX] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
 
@@ -27,11 +31,35 @@ const Navbar = ({ children }) => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
+    // Eventos touch para detectar el swipe
+    const handleTouchStart = (e) => setStartX(e.touches[0].clientX);
+
+    const handleTouchMove = (e) => setEndX(e.touches[0].clientX);
+
+    const handleTouchEnd = () => {
+      const swipeDistance = startX - endX;
+
+      if (swipeDistance < -50) {
+        // Swipe de izquierda a derecha detectado
+        setDrawerVisible(true);
+      } else if (swipeDistance > 50 && drawerVisible) {
+        // Swipe de derecha a izquierda detectado
+        setDrawerVisible(false);
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [startX, endX, drawerVisible]);
 
   const toggleDrawer = () => setDrawerVisible(!drawerVisible);
 
