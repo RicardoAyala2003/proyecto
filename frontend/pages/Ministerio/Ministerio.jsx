@@ -23,10 +23,10 @@ const Ministerio = () => {
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Somos la Iglesia de Cristo Ebenezer Honduras
           </h1>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 w-full bg-blue-500">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 w-full">
             {/* Imágenes flotantes */}
-            <div className="w-full bg-orange-500">
-              <div className="flex justify-center items-center bg-red-500 gap-4 flex-wrap">
+            <div>
+              <div className="flex justify-center items-center gap-4 flex-wrap">
                 <img
                   src="/Resources/Gallery/1.jpg"
                   alt="Imagen 1"

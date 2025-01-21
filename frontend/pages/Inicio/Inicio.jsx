@@ -20,7 +20,7 @@ const Inicio = () => {
   };
 
   return (
-    <div className="bg-blue-500">
+    <div>
       <ImagesBanner
         title="Bienvenido"
         image="/Covers/inicio2.jpg"
@@ -39,7 +39,7 @@ const Inicio = () => {
           Esta es la página de inicio de nuestro proyecto.
         </p>
 
-        <div className="w-full bg-red-500">
+        <div>
           {/* Card 1: ¿Eres nuevo? */}
           <div className="flex justify-center mt-8">
             <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center max-w-full overflow-hidden">
