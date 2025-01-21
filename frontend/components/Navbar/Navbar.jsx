@@ -44,7 +44,9 @@ const Navbar = ({ children }) => {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout
+      className="bg-purple-500"
+      style={{ minHeight: "100vh", maxWidth: "100%" }}>
       <Header
         className={`fixed top-0 left-0 w-full z-20 transition-all duration-300 ${
           scrolled ? "h-8" : "h-32"
@@ -183,7 +185,9 @@ const Navbar = ({ children }) => {
       </Drawer>
 
       {/* Contenido */}
-      <Content>{children}</Content>
+      <div className="bg-green-500">
+        <Content>{children}</Content>
+      </div>
     </Layout>
   );
 };
