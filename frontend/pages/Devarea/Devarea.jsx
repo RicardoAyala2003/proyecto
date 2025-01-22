@@ -45,13 +45,41 @@ const HomePage = () => {
     // Agrega más URLs de imágenes
   ];
   return (
-    <div className="container">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        Galería de Imágenes
-      </h1>
-      <MasonryGallery images={images} />
+    <div>
+      <a
+        href="#"
+        class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <img
+          class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+          src="https://firebasestorage.googleapis.com/v0/b/firedarkpage.appspot.com/o/images%2Fjake%20mago.jpg825a0c9a-7ac4-41e5-9987-d77f1a513a95?alt=media&token=a21ce907-6ad1-4ed5-8f33-c485929d1b09"
+          alt=""
+        />
+        <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Noteworthy technology acquisitions 2021
+          </h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+        </div>
+      </a>
     </div>
   );
 };
+
+{
+  /* <div className="container">
+
+
+
+
+
+<h1 className="text-4xl font-bold text-center mb-8">
+  Galería de Imágenes
+</h1>
+<MasonryGallery images={images} />
+</div> */
+}
 
 export default HomePage;

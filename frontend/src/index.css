@@ -4,7 +4,27 @@
 
 :root {
   background-color: #f8f9fa;
+  font-family: 'SeptimusFont';
+  src: local('SeptimusFont'), url(/Septimus.ttf) format('truetype');
 }
+
+.text {
+  font-family: SeptimusFont;
+  font-style: normal;
+}
+
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+ 
+} */
+/* 
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(/Septimus.ttf) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' 
+} */
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

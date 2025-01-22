@@ -1,0 +1,16 @@
+form {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto, un solo campo por fila */
+    gap: 1rem; /* Espaciado entre filas y columnas */
+  }
+  
+  @media (min-width: 768px) {
+    form {
+      grid-template-columns: repeat(1, 1fr); /* Dos campos por fila en pantallas medianas o mayores */
+    }
+  }
+  
+  .form-item.col-span-2 {
+    grid-column: span 2; /* Asegura que el elemento ocupe toda la fila */
+  }
+  
