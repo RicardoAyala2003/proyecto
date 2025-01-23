@@ -58,7 +58,7 @@ const Navbar = ({ children }) => {
         style={{
           background: scrolled
             ? "rgba(0, 33, 64, 0.8)"
-            : "linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0))",
+            : "linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0))",
         }}>
         <div className="container mx-auto flex items-center justify-between h-full">
           {isMobile ? (
