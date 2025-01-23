@@ -8,6 +8,17 @@ import {
   ClockCircleOutlined,
 } from "@ant-design/icons";
 
+import WebsiteData from "../../../aData.js";
+
+const ComponentData = {
+  name: WebsiteData.churchInfo.name,
+  email: WebsiteData.churchInfo.email,
+  phone: WebsiteData.churchInfo.phone,
+  adress: WebsiteData.churchInfo.address,
+
+  horarios: WebsiteData.services,
+};
+
 const Contactenos = () => {
   const dominantColor = "#193753"; // Color dominante
 
@@ -45,28 +56,32 @@ const Contactenos = () => {
           <div className="flex items-center mt-4 gap-2">
             <EnvironmentOutlined className="text-lg text-gray-600" />
             <p className="text-lg text-gray-700">
-              <span className="font-bold">Dirección:</span> Calle Ficticia 123,
-              Barrio Inventado, Ciudad Ejemplo, País Imaginario
+              <span className="font-bold">Dirección:</span>{" "}
+              {ComponentData.adress}
             </p>
           </div>
           <div className="flex items-center mt-4 gap-2">
             <PhoneOutlined className="text-lg text-gray-600" />
             <p className="text-lg text-gray-700">
-              <span className="font-bold">Teléfono:</span> (123) 456-7890
+              <span className="font-bold">Teléfono:</span> {ComponentData.phone}
             </p>
           </div>
           <div className="flex items-center mt-4 gap-2">
             <MailOutlined className="text-lg text-gray-600" />
             <p className="text-lg text-gray-700">
               <span className="font-bold">Correo Electrónico:</span>{" "}
-              contacto@ejemplo.com
+              {ComponentData.email}
             </p>
           </div>
           <div className="flex items-center mt-4 gap-2">
             <ClockCircleOutlined className="text-lg text-gray-600" />
             <p className="text-lg text-gray-700">
-              <span className="font-bold">Horarios de atención:</span> Lunes a
-              Viernes - 9:00 AM a 5:00 PM
+              <span className="font-bold">Horarios de atención:</span>{" "}
+              {ComponentData.horarios.map((servicio) => (
+                <p key={servicio.day} className="text-gray-700">
+                  {servicio.day} - {servicio.time}
+                </p>
+              ))}
             </p>
           </div>
         </div>

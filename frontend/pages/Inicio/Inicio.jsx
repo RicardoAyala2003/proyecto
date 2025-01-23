@@ -28,7 +28,7 @@ const Inicio = () => {
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: -100 },
+    hidden: { opacity: 0, scale: 0.8, y: -50 },
     visible: { opacity: 1, scale: 1, y: 0 },
   };
 
@@ -38,26 +38,54 @@ const Inicio = () => {
   };
 
   // Ref and in-view hook for lazy-triggered animations
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const ref4 = useRef(null);
-  const ref5 = useRef(null);
+  const refs = [useRef(null), useRef(null), useRef(null)];
+  const inViewStates = refs.map((ref) =>
+    useInView(ref, { triggerOnce: true, threshold: 0.5 })
+  );
 
-  const isInView1 = useInView(ref1, { triggerOnce: true, threshold: 1 });
-  const isInView2 = useInView(ref2, { triggerOnce: true, threshold: 1 });
-  const isInView3 = useInView(ref3, { triggerOnce: true, threshold: 1 });
-  const isInView4 = useInView(ref4, { triggerOnce: true, threshold: 1 });
-  const isInView5 = useInView(ref5, { triggerOnce: true, threshold: 1 });
+  const cardsData = [
+    {
+      title: "¿Eres nuevo?",
+      description:
+        "Te invitamos a registrarte con nosotros y así formar parte de nuestra comunidad de manera presencial o en línea.",
+      buttonText: "Regístrate",
+      image: "/Images/img (6) - Copy.jpeg",
+      onClick: handleRegisterClick,
+      animation: "hiddenLeft",
+      ref: refs[0],
+      inView: inViewStates[0],
+    },
+    {
+      title: "¿Oramos por ti?",
+      description:
+        "Si tienes alguna petición, puedes enviarnos un mensaje de manera confidencial y con gusto estaremos orando por ti.",
+      buttonText: "Orar por mí",
+      image: "/Images/img (9).jpeg",
+      onClick: handlePrayerClick,
+      animation: "hiddenRight",
+      ref: refs[1],
+      inView: inViewStates[1],
+    },
+    {
+      title: "Contáctanos",
+      description:
+        "¿Tienes alguna pregunta o quieres contactarte con nosotros? Envíanos un mensaje y un miembro de nuestro equipo te responderá.",
+      buttonText: "Contáctanos",
+      image: "/Images/img (4).jpeg",
+      onClick: handleContactClick,
+      animation: "hiddenLeft",
+      ref: refs[2],
+      inView: inViewStates[2],
+    },
+  ];
 
   return (
     <div className="overflow-hidden">
       <div>
         {/* Animated Banner */}
         <motion.div
-          ref={ref1}
           initial={{ opacity: 0 }}
-          animate={isInView1 ? { opacity: 1 } : {}}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}>
           <ImagesBanner
             title="Bienvenido"
@@ -72,146 +100,57 @@ const Inicio = () => {
         </motion.div>
 
         {/* Cards Area */}
-        <div
-          style={{ marginBottom: "100px" }}
-          align="center"
-          className=" bg-green-500">
-          {/* Animated Header */}
+        <div className="mb-24 px-4">
           <motion.h1
             className="text-3xl font-bold text-center"
-            ref={ref2}
             initial={{ opacity: 0, y: -20 }}
-            animate={isInView2 ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}>
             Bienvenido a la Página de Inicio
           </motion.h1>
           <motion.p
             className="text-center text-lg mt-4"
-            ref={ref2}
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView2 ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}>
             Esta es la página de inicio de nuestro proyecto.
           </motion.p>
 
-          <div className="bg-red-500 max-w-7xl">
-            {/* Card 1: ¿Eres nuevo? */}
-            <motion.div
-              className="flex justify-center mt-8"
-              ref={ref3}
-              initial="hiddenLeft"
-              animate={isInView3 ? "visible" : "hiddenLeft"}
-              variants={cardVariants}
-              transition={{ duration: 0.8 }}>
-              <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center max-w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            {cardsData.map((card, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col md:flex-row items-center mt-8 bg-white shadow-md rounded-lg p-6 md:p-8 max-w-full overflow-hidden"
+                ref={card.ref}
+                initial={card.animation}
+                animate={card.inView ? "visible" : card.animation}
+                variants={cardVariants}
+                transition={{ duration: 0.8 }}>
                 <motion.img
-                  src="/Covers/img.jpg"
-                  alt="Eres nuevo"
-                  className="w-40 h-40 object-cover rounded-lg flex-shrink-0"
+                  src={card.image}
+                  alt={card.title}
+                  className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg flex-shrink-0"
                   initial="hidden"
-                  animate={isInView3 ? "visible" : "hidden"}
+                  animate={card.inView ? "visible" : "hidden"}
                   variants={imageVariants}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 />
-                <div className="w-px bg-gray-300 mx-8 h-full"></div>
-                <div className="text-left overflow-hidden">
-                  <h2 className="text-2xl font-semibold mb-4 text-[#002140] truncate">
-                    ¿Eres nuevo?
+                <div className="w-full md:ml-8 mt-4 md:mt-0 text-center md:text-left">
+                  <h2 className="text-xl md:text-2xl font-semibold mb-4 text-[#002140]">
+                    {card.title}
                   </h2>
-                  <p className="mb-4 text-gray-700 line-clamp-3">
-                    Te invitamos a registrarte con nosotros y así formar parte
-                    de nuestra comunidad de manera presencial o en línea.
-                  </p>
+                  <p className="mb-4 text-gray-700">{card.description}</p>
                   <motion.button
-                    className="bg-[#002140] text-white px-6 py-3 rounded hover:bg-[#004080] transition"
-                    onClick={handleRegisterClick}
+                    className="bg-[#002140] text-white px-4 py-2 md:px-6 md:py-3 rounded hover:bg-[#004080] transition"
+                    onClick={card.onClick}
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap">
-                    Regístrate
+                    {card.buttonText}
                   </motion.button>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Card 2: ¿Oramos por ti? */}
-            <motion.div
-              className="flex justify-center mt-8"
-              ref={ref4}
-              initial="hiddenRight"
-              animate={isInView4 ? "visible" : "hiddenRight"}
-              variants={cardVariants}
-              transition={{ duration: 0.8 }}>
-              <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center max-w-full overflow-hidden">
-                <motion.img
-                  src="/Covers/img.jpg"
-                  alt="Oramos por ti"
-                  className="w-40 h-40 object-cover rounded-lg flex-shrink-0"
-                  initial="hidden"
-                  animate={isInView4 ? "visible" : "hidden"}
-                  variants={imageVariants}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                />
-                <div className="w-px bg-gray-300 mx-8 h-full"></div>
-                <div className="text-left overflow-hidden">
-                  <h2 className="text-2xl font-semibold mb-4 text-[#002140] truncate">
-                    ¿Oramos por ti?
-                  </h2>
-                  <p className="mb-4 text-gray-700 line-clamp-3">
-                    Si tienes alguna petición, puedes enviarnos un mensaje de
-                    manera confidencial y con gusto estaremos orando por ti.
-                  </p>
-                  <motion.button
-                    className="bg-[#002140] text-white px-6 py-3 rounded hover:bg-[#004080] transition"
-                    onClick={handlePrayerClick}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap">
-                    Orar por mí
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 3: Contáctanos */}
-            <motion.div
-              className="flex justify-center mt-8"
-              ref={ref5}
-              initial="hiddenLeft"
-              animate={isInView5 ? "visible" : "hiddenLeft"}
-              variants={cardVariants}
-              transition={{ duration: 0.8 }}>
-              <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-3xl flex items-center max-w-full overflow-hidden">
-                <motion.img
-                  src="/Covers/img.jpg"
-                  alt="Contáctanos"
-                  className="w-40 h-40 object-cover rounded-lg flex-shrink-0"
-                  initial="hidden"
-                  animate={isInView5 ? "visible" : "hidden"}
-                  variants={imageVariants}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                />
-                <div className="w-px bg-gray-300 mx-8 h-full"></div>
-                <div className="text-left overflow-hidden">
-                  <h2 className="text-2xl font-semibold mb-4 text-[#002140] truncate">
-                    Contáctanos
-                  </h2>
-                  <p className="mb-4 text-gray-700 line-clamp-3">
-                    ¿Tienes alguna pregunta o quieres contactarte con nosotros?
-                    Envíanos un mensaje y un miembro de nuestro equipo te
-                    responderá.
-                  </p>
-                  <motion.button
-                    className="bg-[#002140] text-white px-6 py-3 rounded hover:bg-[#004080] transition"
-                    onClick={handleContactClick}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap">
-                    Contáctanos
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

@@ -3,6 +3,15 @@ import { Layout } from "antd";
 
 const { Footer } = Layout;
 
+import WebsiteData from "../../aData.js";
+
+const ComponentData = {
+  name: WebsiteData.churchInfo.name,
+  email: WebsiteData.churchInfo.email,
+  phone: WebsiteData.churchInfo.phone,
+  adress: WebsiteData.churchInfo.address,
+};
+
 const CustomFooter = () => {
   return (
     <Footer
@@ -28,7 +37,7 @@ const CustomFooter = () => {
             <a
               href="mailto:contacto@ejemplo.com"
               className="text-gray-300 hover:text-white">
-              contacto@ejemplo.com
+              {ComponentData.email}
             </a>
           </p>
           <p>
@@ -36,19 +45,19 @@ const CustomFooter = () => {
             <a
               href="tel:+1234567890"
               className="text-gray-300 hover:text-white">
-              +1 (234) 567-890
+              {ComponentData.phone}
             </a>
           </p>
           <p>
-            <span className="font-semibold">Ubicación:</span> Avenida Siempre
-            Viva #123, Ciudad, País
+            <span className="font-semibold">Ubicación:</span>{" "}
+            {ComponentData.adress}
           </p>
         </div>
 
         {/* Derechos de Autor */}
         <div className="text-center mt-6 lg:mt-0 text-sm text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} Nombre de la Empresa. Todos los
+            &copy; {new Date().getFullYear()} {ComponentData.name}. Todos los
             derechos reservados.
           </p>
         </div>
