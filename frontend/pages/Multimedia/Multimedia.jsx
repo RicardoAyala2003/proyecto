@@ -5,6 +5,8 @@ import MasonryGallery from "../../components/MasonryGallery/MasonryGallery";
 
 import ImagesCarousel from "../../components/Carousels/ImagesCarousel";
 
+import VideosCarousel from "../../components/Carousels/VideosCarousel";
+
 import { Divider } from "antd";
 
 const Multimedia = () => {
@@ -45,17 +47,22 @@ const Multimedia = () => {
     // Agrega más URLs de imágenes
   ];
 
+  const videos = [
+    "https://www.youtube.com/embed/-pl3VFsjcrI",
+    "https://www.youtube.com/embed/Roo4uEQzJms",
+    "https://www.youtube.com/embed/Z5UiBleDnhY",
+  ];
+
   const dominantColor = "#193753"; // Color principal
 
   return (
     <div>
-      {/* <ImagesBanner title="Multimedia" image="/Covers/multimedia.jpg">
-        <MasonryGallery images={images} />
-      </ImagesBanner> */}
-
       <ImagesBanner
         title="Multimedia"
         image="/Covers/multimedia.jpg"></ImagesBanner>
+
+      <MasonryGallery images={images} />
+
       <Divider
         style={{
           borderColor: dominantColor,
@@ -71,6 +78,8 @@ const Multimedia = () => {
         }}>
         Videos
       </Divider>
+
+      <VideosCarousel videos={videos} />
     </div>
   );
 };

@@ -3,9 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Image } from "antd";
-
-const ImageCarousel = ({ images }) => {
+const VideoCarousel = ({ videos }) => {
   const CustomArrow = ({ onClick, direction }) => (
     <div
       onClick={onClick}
@@ -55,41 +53,31 @@ const ImageCarousel = ({ images }) => {
     <div
       style={{
         width: "100%",
+
         margin: "0 auto",
         position: "relative",
       }}>
       <Slider {...settings}>
-        {images.map((img, index) => (
+        {videos.map((video, index) => (
           <div
             key={index}
             style={{
-              className:
-                "overflow-hidden rounded-lg transform transition-transform duration-300 hover:scale-105",
-              width: "100%",
-              height: "auto",
-              //   backgroundColor: "blue",
-              //   padding: "10px",
+              padding: "10px",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              borderRadius: "8px",
             }}>
-            <div
-              style={{
-                width: "100%",
-                height: "auto",
-                padding: "10px",
-                // backgroundColor: "red",
-              }}>
-              <Image
-                src={img.src}
-                alt={`Image ${index + 1}`}
+            <div style={{ width: "100%", height: "50%", padding: "10px" }}>
+              <iframe
+                src={video}
+                title={`Video ${index + 1}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
                 style={{
                   width: "100%",
-                  height: "100%",
+                  height: "315px",
                   borderRadius: "8px",
-
-                  // padding: "10px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                }}
-              />
+                }}></iframe>
             </div>
           </div>
         ))}
@@ -98,4 +86,4 @@ const ImageCarousel = ({ images }) => {
   );
 };
 
-export default ImageCarousel;
+export default VideoCarousel;

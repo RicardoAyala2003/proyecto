@@ -1,13 +1,12 @@
 import React from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
+import { Image } from "antd";
+
 const MasonryGallery = ({ images }) => {
   return (
-    <div
-      className="w-screen z-10"
-      style={{ marginTop: "calc( - 64px)" }}
-      align="center">
-      <div className="w-10/12">
+    <div>
+      <div>
         <ResponsiveMasonry
           columnsCountBreakPoints={{
             350: 1,
@@ -15,19 +14,15 @@ const MasonryGallery = ({ images }) => {
             750: 3,
             900: 4,
             1000: 5,
-            1200: 5,
+            1200: 6,
           }}>
-          <Masonry gutter="16px" sequential={true}>
+          <Masonry>
             {images.map((image, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-lg transform transition-transform duration-300 hover:scale-105">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover "
-                />
-              </div>
+              <Image
+                style={{ width: "100%", height: "auto" }}
+                src={image.src}
+                alt={image.alt}
+              />
             ))}
           </Masonry>
         </ResponsiveMasonry>
