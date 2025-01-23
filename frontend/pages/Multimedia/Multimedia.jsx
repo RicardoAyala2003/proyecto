@@ -3,6 +3,10 @@ import ImagesBanner from "../../components/ImagesBanner/ImagesBanner";
 
 import MasonryGallery from "../../components/MasonryGallery/MasonryGallery";
 
+import ImagesCarousel from "../../components/Carousels/ImagesCarousel";
+
+import { Divider } from "antd";
+
 const Multimedia = () => {
   const images = [
     {
@@ -40,13 +44,33 @@ const Multimedia = () => {
 
     // Agrega más URLs de imágenes
   ];
+
+  const dominantColor = "#193753"; // Color principal
+
   return (
     <div>
-      <ImagesBanner title="Multimedia" image="/Covers/multimedia.jpg">
+      {/* <ImagesBanner title="Multimedia" image="/Covers/multimedia.jpg">
         <MasonryGallery images={images} />
-      </ImagesBanner>
-      <h1>Multimedia Page</h1>
-      <p>Welcome to the multimedia page!</p>
+      </ImagesBanner> */}
+
+      <ImagesBanner
+        title="Multimedia"
+        image="/Covers/multimedia.jpg"></ImagesBanner>
+      <Divider
+        style={{
+          borderColor: dominantColor,
+        }}>
+        Imagenes
+      </Divider>
+
+      <ImagesCarousel images={images} />
+
+      <Divider
+        style={{
+          borderColor: dominantColor,
+        }}>
+        Videos
+      </Divider>
     </div>
   );
 };
