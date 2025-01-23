@@ -18,7 +18,7 @@ const Ministerio = () => {
       </ImagesBanner>
 
       {/* Información del Ministerio */}
-      <div className=" bg-gray-100 ">
+      <div className="bg-gray-100">
         <div className="w-full align-center mx-auto">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Somos la Iglesia de Cristo Ebenezer Honduras
@@ -65,8 +65,70 @@ const Ministerio = () => {
               </div>
             </div>
           </div>
+
+          {/* Nueva sección para el pastor y fotos */}
+<div className="bg-white py-12">
+  <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+    Nuestros Pastores
+  </h2>
+  
+  <div className="relative flex justify-center items-center max-w-4xl mx-auto">
+    {/* Asistente 1 - Izquierda */}
+    <div className="absolute flex flex-col items-center transform hover:scale-105 transition-transform duration-300" style={{ left: '-5%' }}>
+      <img
+        src="/Resources/Gallery/pastor4.png"
+        alt="Asistente 1"
+        className="w-36 h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full shadow-lg object-cover"
+      />
+      <h3 className="font-semibold text-gray-800 mt-2 text-center text-lg">
+      German R. Ponce
+      </h3>
+      <p className="text-center text-gray-600 mt-2 text-base">el papá</p>
+    </div>
+
+    {/* Círculo con la imagen del Pastor */}
+    <div className="relative flex flex-col items-center  hover:scale-105 transition-transform duration-300">
+      {/* Círculo de fondo */}
+      <div
+        className="absolute w-[18rem] h-[18rem] md:w-[20rem] md:h-[20rem] lg:w-[23rem] lg:h-[23rem] rounded-full "
+        style={{ backgroundColor: "#466a88" }}
+      ></div>
+      {/* Imagen del pastor */}
+      <img
+        src="/Resources/Gallery/pastor3.png"
+        alt="Foto del Pastor"
+        className="w-56 h-auto md:w-64 lg:w-72 shadow-none relative z-10 "
+      />
+     
+      <h3 className="text-2xl font-semibold text-gray-800 mt-6 text-center">
+        Pastores Marvin Yovani & Jovita Delcid
+      </h3>
+      <p className="text-gray-600 text-center max-w-md mt-4 text-base">
+        Los pastores lideran con amor y dedicación, guiando a la congregación en
+        el propósito de Dios, edificando familias y promoviendo el crecimiento
+        espiritual.
+      </p>
+    </div>
+
+    {/* Asistente 2 - Derecha */}
+    <div className="absolute flex flex-col items-center transform hover:scale-105 transition-transform duration-300" style={{ right: '-5%' }}>
+      <img
+        src="/Resources/Gallery/pastor5.png"
+        alt="Asistente 2"
+        className="w-36 h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full shadow-lg object-cover "
+      />
+      <h3 className="font-semibold text-gray-800 mt-2 text-center text-lg">
+      German A. Ponce
+      </h3>
+      <p className="text-center text-gray-600 mt-2 text-base">el hijo</p>
+    </div>
+  </div>
+</div>
+
+
+
           {/* Vista previa de Google Maps */}
-          <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800">
+          <div className="bg-gray-100 p-6 rounded-lg shadow-lg text-gray-800">
             <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">
               Encuéntranos
             </h2>
@@ -90,26 +152,7 @@ const Ministerio = () => {
               </a>
             </div>
           </div>
-          {/*  */}
         </div>
-        {/* Image Banner 2 */}
-        <div style={{ marginTop: "100px", marginBottom: "100px" }}>
-          <div
-            className="sub-section flex items-center justify-center text-center"
-            style={{ backgroundImage: `url(/Covers/ministerio.jpg)` }}>
-            <div className="hero-content z-10">
-              <h1 className="text-white text-3xl md:text-5xl font-bold leading-snug">
-                ¡<span className="text-4xl md:text-6xl">Somos</span> una Iglesia
-                <span className="text-4xl md:text-6xl"> Generacional</span>
-                ,
-                <br />
-                <span className="text-4xl md:text-6xl">Prosperados</span> por la
-                <span className="text-4xl md:text-6xl "> Palabra</span>!
-              </h1>
-            </div>
-          </div>
-        </div>
-        {/*  */}
       </div>
     </div>
   );
