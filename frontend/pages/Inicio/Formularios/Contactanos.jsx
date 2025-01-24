@@ -17,6 +17,16 @@ const ComponentData = {
   adress: WebsiteData.churchInfo.address,
 
   horarios: WebsiteData.services,
+
+  mapsUrl: WebsiteData.churchInfo.mapsurl,
+  embededMapsUrl: WebsiteData.churchInfo.mapsUrlEmbeded,
+
+  socialMedia: {
+    Facebook: WebsiteData.socialMedia.facebook,
+    Instagram: WebsiteData.socialMedia.instagram,
+    Youtube: WebsiteData.socialMedia.youtube,
+    Twitter: WebsiteData.socialMedia.twitter,
+  },
 };
 
 const Contactenos = () => {
@@ -97,13 +107,13 @@ const Contactenos = () => {
             Puedes llegar fácilmente a nuestra ubicación utilizando el siguiente
             enlace:
           </p>
-          <a
-            href="https://maps.google.com/?q=Calle+Ficticia+123,+Barrio+Inventado,+Ciudad+Ejemplo"
+          {/* <a
+            href={ComponentData.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800">
             Ver en Google Maps
-          </a>
+          </a> */}
 
           <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800">
             <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">
@@ -112,7 +122,7 @@ const Contactenos = () => {
             <div className="w-full h-64 mb-4">
               <iframe
                 title="Ubicación Ministerio"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.72094687868!2d-87.24141984468834!3d14.072275363363887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa9933ff1c85f%3A0xe43e8f61b0b5e8c!2sTegucigalpa!5e0!3m2!1sen!2shn!4v1692991999412!5m2!1sen!2shn"
+                src={ComponentData.embededMapsUrl}
                 width="100%"
                 height="100%"
                 allowFullScreen
@@ -121,7 +131,7 @@ const Contactenos = () => {
             </div>
             <div className="text-center">
               <a
-                href="https://maps.google.com/?q=Tegucigalpa,Honduras"
+                href={ComponentData.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 text-lg font-semibold">
@@ -140,28 +150,28 @@ const Contactenos = () => {
           </h2>
           <div className="flex justify-center space-x-6">
             <a
-              href="https://facebook.com"
+              href={ComponentData.socialMedia.Facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800">
               <FaFacebook size={40} />
             </a>
             <a
-              href="https://twitter.com"
+              href={ComponentData.socialMedia.Twitter}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-blue-600">
               <FaTwitter size={40} />
             </a>
             <a
-              href="https://instagram.com"
+              href={ComponentData.socialMedia.Instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-600 hover:text-pink-800">
               <FaInstagram size={40} />
             </a>
             <a
-              href="https://linkedin.com"
+              href={ComponentData.socialMedia.Linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-700 hover:text-blue-900">

@@ -50,7 +50,7 @@ const Navbar = ({ children }) => {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh", maxWidth: "100%" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Header
         className={`fixed top-0 left-0 w-full z-20 transition-all duration-300 ${
           scrolled ? "h-8" : "h-32"

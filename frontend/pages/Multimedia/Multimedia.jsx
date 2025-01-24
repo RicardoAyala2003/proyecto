@@ -7,43 +7,44 @@ import ImagesCarousel from "../../components/Carousels/ImagesCarousel";
 
 import VideosCarousel from "../../components/Carousels/VideosCarousel";
 
+import GridGallery from "../../components/Grid/GridGallery";
+
 import { Divider } from "antd";
 
 const Multimedia = () => {
   const images = [
     {
-      src: "/Covers/multimedia.jpg",
+      src: "/Images/img (1).jpeg",
       alt: "Image 1",
     },
     {
-      src: "/Covers/inicio.jpg",
+      src: "/Images/img (2).jpeg",
       alt: "Image 2",
     },
     {
-      src: "/Covers/inicio2.jpg",
+      src: "/Images/img (3).jpeg",
       alt: "Image 3",
     },
     {
-      src: "/Covers/ministerio.jpg",
+      src: "/Images/img (4).jpeg",
       alt: "Image 4",
     },
     {
-      src: "/Covers/orando.jpg",
+      src: "/Images/img (5).jpeg",
       alt: "Image 5",
     },
     {
-      src: "/Covers/registro.jpg",
+      src: "/Images/img (6).jpeg",
       alt: "Image 6",
     },
     {
-      src: "/Covers/inicio.jpg",
+      src: "/Images/img (7).jpeg",
       alt: "Image 7",
     },
     {
-      src: "/Covers/multimedia.jpg",
+      src: "/Images/img (8).jpeg",
       alt: "Image 8",
     },
-
     // Agrega más URLs de imágenes
   ];
 
@@ -61,7 +62,11 @@ const Multimedia = () => {
         title="Multimedia"
         image="/Covers/multimedia.jpg"></ImagesBanner>
 
-      <MasonryGallery images={images} />
+      {/* <GridGallery /> */}
+
+      <div style={{ padding: "20px" }}>
+        <MasonryGallery images={images} />
+      </div>
 
       <Divider
         style={{
