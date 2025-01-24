@@ -60,31 +60,32 @@ const Multimedia = () => {
     <div>
       <ImagesBanner
         title="Multimedia"
-        image="/Covers/multimedia.jpg"></ImagesBanner>
+        image="/Covers/multimedia.jpg"
+        overlayMargin={384}>
+        {/* <GridGallery /> */}
 
-      {/* <GridGallery /> */}
+        <div style={{ padding: "20px" }}>
+          <MasonryGallery images={images} />
+        </div>
 
-      <div style={{ padding: "20px" }}>
-        <MasonryGallery images={images} />
-      </div>
+        <Divider
+          style={{
+            borderColor: dominantColor,
+          }}>
+          Imagenes
+        </Divider>
 
-      <Divider
-        style={{
-          borderColor: dominantColor,
-        }}>
-        Imagenes
-      </Divider>
+        <ImagesCarousel images={images} />
 
-      <ImagesCarousel images={images} />
+        <Divider
+          style={{
+            borderColor: dominantColor,
+          }}>
+          Videos
+        </Divider>
 
-      <Divider
-        style={{
-          borderColor: dominantColor,
-        }}>
-        Videos
-      </Divider>
-
-      <VideosCarousel videos={videos} />
+        <VideosCarousel videos={videos} />
+      </ImagesBanner>
     </div>
   );
 };

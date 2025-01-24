@@ -66,178 +66,178 @@ const RegistrationPage = () => {
       <ImagesBanner
         title="Se parte de una gran familia"
         image="/Covers/registro.jpg"
-        overlayMargin={300}>
+        overlayMargin={384}>
         <div className="w-screen  justify-center items-center z-10">
-          <div className="flex justify-center items-center z-10">
-            <div style={{ marginTop: "100px" }}></div>
-          </div>
+          <div className="flex justify-center items-center z-10"></div>
         </div>
-      </ImagesBanner>
-      <div
-        className="p-8"
-        style={{ paddingTop: "300px", paddingBottom: "200px" }}>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-xl">
-            <h1
-              className="text-3xl font-extrabold text-center mb-4"
-              style={{ color: dominantColor }}>
-              ¡Tenemos un lugar para ti!
-            </h1>
-            <p className="text-center mb-6" style={{ color: dominantColor }}>
-              Queremos darte la bienvenida a la familia de Dios y a Ebenezer
-              Honduras.
-            </p>
-            <Form
-              form={form} // Asocia la referencia del formulario
-              name="registration"
-              layout="vertical"
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-              {[
-                {
-                  label: "¿Cuál es tu nombre?",
-                  name: "name",
-                  placeholder: "Nombre completo",
-                },
-                {
-                  label: "Correo Electrónico",
-                  name: "email",
-                  placeholder: "ejemplo@correo.com",
-                  type: "email",
-                },
-                {
-                  label: "Teléfono",
-                  name: "phone",
-                  placeholder: "Número de teléfono",
-                },
-                {
-                  label: "¿De qué país eres?",
-                  name: "country",
-                  placeholder: "País",
-                },
-              ].map(({ label, name, placeholder, type }) => (
+
+        <div className="p-8" style={{ paddingBottom: "200px" }}>
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-xl">
+              <h1
+                className="text-3xl font-extrabold text-center mb-4"
+                style={{ color: dominantColor }}>
+                ¡Tenemos un lugar para ti!
+              </h1>
+              <p className="text-center mb-6" style={{ color: dominantColor }}>
+                Queremos darte la bienvenida a la familia de Dios y a Ebenezer
+                Honduras.
+              </p>
+              <Form
+                form={form} // Asocia la referencia del formulario
+                name="registration"
+                layout="vertical"
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                {[
+                  {
+                    label: "¿Cuál es tu nombre?",
+                    name: "name",
+                    placeholder: "Nombre completo",
+                  },
+                  {
+                    label: "Correo Electrónico",
+                    name: "email",
+                    placeholder: "ejemplo@correo.com",
+                    type: "email",
+                  },
+                  {
+                    label: "Teléfono",
+                    name: "phone",
+                    placeholder: "Número de teléfono",
+                  },
+                  {
+                    label: "¿De qué país eres?",
+                    name: "country",
+                    placeholder: "País",
+                  },
+                ].map(({ label, name, placeholder, type }) => (
+                  <Form.Item
+                    key={name}
+                    label={label}
+                    name={name}
+                    rules={[
+                      {
+                        required: true,
+                        message: `Por favor, ingresa ${label.toLowerCase()}.`,
+                      },
+                    ]}
+                    className="sm:col-span-1 md:col-span-1 lg:col-span-1">
+                    <Input
+                      type={type}
+                      placeholder={placeholder}
+                      className="rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+                    />
+                  </Form.Item>
+                ))}
+
                 <Form.Item
-                  key={name}
-                  label={label}
-                  name={name}
+                  label="¿De dónde te conectaste con nosotros?"
+                  name="location"
                   rules={[
                     {
                       required: true,
-                      message: `Por favor, ingresa ${label.toLowerCase()}.`,
+                      message: "Por favor, selecciona tu ubicación.",
                     },
                   ]}
                   className="sm:col-span-1 md:col-span-1 lg:col-span-1">
-                  <Input
-                    type={type}
-                    placeholder={placeholder}
-                    className="rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+                  <Select
+                    placeholder="Selecciona una opción"
+                    className="rounded-md">
+                    <Option value="iglesia">Desde la iglesia</Option>
+                    <Option value="online">En línea</Option>
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  label="Sexo"
+                  name="gender"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Por favor, selecciona tu sexo.",
+                    },
+                  ]}
+                  className="sm:col-span-1 md:col-span-1 lg:col-span-1">
+                  <Select
+                    placeholder="Selecciona una opción"
+                    className="rounded-md">
+                    <Option value="male">Masculino</Option>
+                    <Option value="female">Femenino</Option>
+                    <Option value="other">Otro</Option>
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  label="¿Cuál es tu estado civil?"
+                  name="maritalStatus"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Por favor, selecciona tu estado civil.",
+                    },
+                  ]}
+                  className="sm:col-span-1 md:col-span-1 lg:col-span-1">
+                  <Select
+                    placeholder="Selecciona una opción"
+                    className="rounded-md">
+                    <Option value="single">Soltero</Option>
+                    <Option value="married">Casado</Option>
+                    <Option value="other">Otro</Option>
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  label="Fecha de Nacimiento"
+                  name="dob"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Por favor, ingresa tu fecha de nacimiento.",
+                    },
+                  ]}
+                  className="sm:col-span-1 md:col-span-2 lg:col-span-2">
+                  <DatePicker
+                    className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
+                    placeholder="dd/mm/aaaa"
+                    format="DD/MM/YYYY"
                   />
                 </Form.Item>
-              ))}
 
-              <Form.Item
-                label="¿De dónde te conectaste con nosotros?"
-                name="location"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor, selecciona tu ubicación.",
-                  },
-                ]}
-                className="sm:col-span-1 md:col-span-1 lg:col-span-1">
-                <Select
-                  placeholder="Selecciona una opción"
-                  className="rounded-md">
-                  <Option value="iglesia">Desde la iglesia</Option>
-                  <Option value="online">En línea</Option>
-                </Select>
-              </Form.Item>
+                <Form.Item
+                  name="consent"
+                  valuePropName="checked"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Debes aceptar para continuar.",
+                    },
+                  ]}
+                  className="sm:col-span-1 md:col-span-2 lg:col-span-2">
+                  <Checkbox style={{ color: dominantColor }}>
+                    Doy consentimiento para que la Iglesia de Cristo Ebenezer
+                    obtenga mis datos para ponerse en contacto conmigo.
+                  </Checkbox>
+                </Form.Item>
 
-              <Form.Item
-                label="Sexo"
-                name="gender"
-                rules={[
-                  { required: true, message: "Por favor, selecciona tu sexo." },
-                ]}
-                className="sm:col-span-1 md:col-span-1 lg:col-span-1">
-                <Select
-                  placeholder="Selecciona una opción"
-                  className="rounded-md">
-                  <Option value="male">Masculino</Option>
-                  <Option value="female">Femenino</Option>
-                  <Option value="other">Otro</Option>
-                </Select>
-              </Form.Item>
-
-              <Form.Item
-                label="¿Cuál es tu estado civil?"
-                name="maritalStatus"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor, selecciona tu estado civil.",
-                  },
-                ]}
-                className="sm:col-span-1 md:col-span-1 lg:col-span-1">
-                <Select
-                  placeholder="Selecciona una opción"
-                  className="rounded-md">
-                  <Option value="single">Soltero</Option>
-                  <Option value="married">Casado</Option>
-                  <Option value="other">Otro</Option>
-                </Select>
-              </Form.Item>
-
-              <Form.Item
-                label="Fecha de Nacimiento"
-                name="dob"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor, ingresa tu fecha de nacimiento.",
-                  },
-                ]}
-                className="sm:col-span-1 md:col-span-2 lg:col-span-2">
-                <DatePicker
-                  className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500 transition duration-200"
-                  placeholder="dd/mm/aaaa"
-                  format="DD/MM/YYYY"
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="consent"
-                valuePropName="checked"
-                rules={[
-                  {
-                    required: true,
-                    message: "Debes aceptar para continuar.",
-                  },
-                ]}
-                className="sm:col-span-1 md:col-span-2 lg:col-span-2">
-                <Checkbox style={{ color: dominantColor }}>
-                  Doy consentimiento para que la Iglesia de Cristo Ebenezer
-                  obtenga mis datos para ponerse en contacto conmigo.
-                </Checkbox>
-              </Form.Item>
-
-              <Form.Item className="sm:col-span-1 md:col-span-2 lg:col-span-2">
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  className="w-full text-white rounded-md py-2 shadow-md hover:shadow-lg transition duration-300"
-                  style={{
-                    backgroundColor: dominantColor,
-                    borderColor: dominantColor,
-                  }}>
-                  Registrarme
-                </Button>
-              </Form.Item>
-            </Form>
+                <Form.Item className="sm:col-span-1 md:col-span-2 lg:col-span-2">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="w-full text-white rounded-md py-2 shadow-md hover:shadow-lg transition duration-300"
+                    style={{
+                      backgroundColor: dominantColor,
+                      borderColor: dominantColor,
+                    }}>
+                    Registrarme
+                  </Button>
+                </Form.Item>
+              </Form>
+            </div>
           </div>
         </div>
-      </div>
+      </ImagesBanner>
     </>
   );
 };

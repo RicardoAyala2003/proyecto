@@ -11,11 +11,9 @@ const HomePage = (props) => {
           <div
             className="hero-section lg:max-h-screen md:max-h-screen lg:min-h-3.5 md:min-h-3.5"
             style={{ backgroundImage: `url(${props.image})` }}>
-            <div className="hero-content z-10 ">
-              <h1 className="text-white text-6xl font-bold text-center">
-                {props.title}
-              </h1>
-            </div>
+            {/* Blue Overlay */}
+            <div className="blue-overlay"></div>
+
             {/* Degradado transparente */}
             <div className="gradient-overlay"></div>
             {/* Triángulo rectángulo */}
@@ -27,10 +25,30 @@ const HomePage = (props) => {
       <div
         className={`dynamic-overlay`}
         style={{
-          // position: "relative",
-          marginTop: `-${props.overlayMargin}px`,
+          marginTop: `${
+            window.innerWidth <= 640 && props.overlayMargin != null
+              ? -256
+              : -props.overlayMargin
+          }px`,
         }}>
-        {props.children}
+        <div className="w-screen justify-center items-center z-10">
+          <div className="flex justify-center items-center z-10">
+            <div className="flex flex-col  h-full w-full">
+              <div className="mb-32">
+                <div className="hero-content z-10 ">
+                  <h1 className="text-white text-6xl font-bold text-center">
+                    {props.title}
+                  </h1>
+                </div>
+
+                <h4 className="mt-2 text-white font-bold text-center">
+                  {props.description}
+                </h4>
+              </div>
+              <div className=" w-full">{props.children}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
