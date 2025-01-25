@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { X, Info } from "lucide-react";
+import { isMobile } from "react-device-detect";
 import "./styles.css";
 
 const ResponsiveGallery = ({ images }) => {
@@ -58,7 +59,7 @@ const ResponsiveGallery = ({ images }) => {
                       : "brightness(100%)",
                 }}
               />
-              {/* {(hoveredIndex === index || window.innerWidth <= 768) && (
+              {hoveredIndex === index && (
                 <div
                   style={{
                     position: "absolute",
@@ -76,7 +77,7 @@ const ResponsiveGallery = ({ images }) => {
                   }}>
                   {image.description || "No description available"}
                 </div>
-              )} */}
+              )}
               {/* {window.innerWidth <= 768 && (
                 <button
                   onClick={() => setHoveredIndex(index)}
@@ -123,6 +124,7 @@ const ResponsiveGallery = ({ images }) => {
             style={{
               // position: "relative",
               height: "80%",
+              width: "auto",
             }}>
             <button
               onClick={closeModal}
@@ -143,8 +145,8 @@ const ResponsiveGallery = ({ images }) => {
               src={selectedImage}
               alt="Preview"
               style={{
-                width: "100%",
-                height: "auto",
+                width: `${isMobile ? "80%" : "auto"}`,
+                height: `${isMobile ? "auto" : "100%"}`,
                 borderRadius: "12px",
                 boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
               }}
