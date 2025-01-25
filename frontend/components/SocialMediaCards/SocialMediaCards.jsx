@@ -1,51 +1,58 @@
 import React from "react";
 import { Button } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 const socialMediaData = [
   {
     name: "Facebook",
     logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
     color: "bg-gradient-to-r from-[#1877F2] to-[#08489C]",
-    description: "Stay connected with friends and family on Facebook.",
-    backgroundImage:
-      "https://via.placeholder.com/150/1877F2/FFFFFF?text=Facebook",
+    description: "Manténgase conectado con amigos y familiares en Facebook.",
+    backgroundImage: "/Images/img (1).jpeg",
   },
   {
     name: "Twitter",
     logo: "https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg",
     color: "bg-gradient-to-r from-[#1DA1F2] to-[#0D74AE]",
-    description: "Follow the latest trends and updates on Twitter.",
-    backgroundImage:
-      "https://via.placeholder.com/150/1DA1F2/FFFFFF?text=Twitter",
+    description: "Siga las últimas tendencias y actualizaciones en Twitter.",
+    backgroundImage: "/Images/img (2).jpeg",
   },
   {
     name: "Instagram",
     logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
     color: "bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045]",
-    description: "Share and explore stunning visuals on Instagram.",
-    backgroundImage:
-      "https://via.placeholder.com/150/833AB4/FFFFFF?text=Instagram",
+    description: "Comparte y explora imágenes impresionantes en Instagram.",
+    backgroundImage: "/Images/img (3).jpeg",
   },
   {
     name: "LinkedIn",
     logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     color: "bg-gradient-to-r from-[#0077B5] to-[#004182]",
-    description: "Connect with professionals on LinkedIn.",
-    backgroundImage:
-      "https://via.placeholder.com/150/0077B5/FFFFFF?text=LinkedIn",
+    description: "Conéctese con profesionales en LinkedIn.",
+    backgroundImage: "/Images/img (4).jpeg",
   },
 ];
+
+const dominantColor = "#193753"; // Color principal
 
 const SocialMediaCards = () => {
   return (
     <div className="flex flex-col md:flex-row gap-6 p-6">
       {/* Sticky title and description */}
-      <div className="md:w-1/3 sticky top-0 bg-red-500">
-        <h1 className="text-2xl font-bold mb-4">Follow Us</h1>
-        <p className="text-gray-600">
-          Connect with us on our social media platforms to stay updated with the
-          latest news and updates. Click "View" to visit our pages.
-        </p>
+      <div className="md:w-1/3 ">
+        <div className="sticky top-12">
+          <h1
+            className="text-4xl font-bold mb-4"
+            style={{ color: dominantColor }}>
+            ¡Únete a nuestras Redes Sociales!
+          </h1>
+          <p className="text-gray-500  font-bold text-1xl">
+            Conéctese con nosotros en nuestras plataformas de redes sociales
+            para mantenerse actualizado con las últimas noticias y
+            actualizaciones. Haga clic en "Ver Pagina" para visitar nuestras
+            páginas.
+          </p>
+        </div>
       </div>
 
       {/* Social media cards */}
@@ -71,12 +78,15 @@ const SocialMediaCards = () => {
               <p className="text-gray-700 text-center mb-4">
                 {social.description}
               </p>
-              <Button
-                type="primary"
-                className="bg-blue-800 hover:bg-blue-900 text-white w-full"
-                size="large">
-                View
-              </Button>
+              <div className="flex justify-end">
+                <Button
+                  type="primary"
+                  className="bg-blue-800 hover:bg-blue-900 text-white flex items-center gap-2"
+                  size="large"
+                  icon={<ArrowRightOutlined />}>
+                  Ver Pagina
+                </Button>
+              </div>
             </div>
           </div>
         ))}
