@@ -80,6 +80,7 @@ const Inicio = () => {
     },
   ];
 
+  const dominantColor = "#002140"; // Color dominante
   return (
     <Suspense fallback={<h1>Loading..</h1>}>
       <div className="overflow-hidden">
@@ -92,9 +93,10 @@ const Inicio = () => {
             <HomeGallery />
             <div className="mb-24 px-4">
               <motion.h1
-                className="text-3xl font-bold text-center"
+                className="text-4xl font-bold text-center"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
+                style = {{color: dominantColor}}
                 transition={{ duration: 0.8 }}>
                 Bienvenido a la Página de Inicio
               </motion.h1>
@@ -102,6 +104,7 @@ const Inicio = () => {
                 className="text-center text-lg mt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                style = {{color: dominantColor}}
                 transition={{ duration: 1, delay: 0.2 }}>
                 Esta es la página de inicio de nuestro proyecto.
               </motion.p>
