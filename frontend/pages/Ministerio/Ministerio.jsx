@@ -91,9 +91,11 @@ const Ministerio = () => {
                   <h3 className="font-semibold text-gray-800 mt-2 text-center text-lg">
                     German R. Ponce
                   </h3>
-                  <p className="text-center text-gray-600 mt-2 text-base">
-                    el papá
+                  <div className="lg:w-1/6 w-full">
+                  <p className="text-center text-gray-600 mt-2 text-base ">
+                  Pastor hondureño conocido por su liderazgo en la Iglesia de Cristo Ebenezer y sus enseñanzas profundas.
                   </p>
+                  </div>
                 </div>
 
                 {/* Círculo con la imagen del Pastor */}
@@ -128,9 +130,11 @@ const Ministerio = () => {
                   <h3 className="font-semibold text-gray-800 mt-2 text-center text-lg">
                     German A. Ponce
                   </h3>
-                  <p className="text-center text-gray-600 mt-2 text-base">
-                    el hijo
+                  <div className="lg:w-1/6 w-full">
+                  <p className="text-center text-gray-600 mt-2 text-base ">
+                  Pastor hondureño conocido por su liderazgo en la Iglesia de Cristo Ebenezer y sus enseñanzas profundas.
                   </p>
+                  </div>
                 </div>
               </div>
             </div>
