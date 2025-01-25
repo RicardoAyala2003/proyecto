@@ -25,6 +25,7 @@ const Ministerio = () => {
         {/* Información del Ministerio */}
         <div className="bg-gray-100">
           <div className="w-full align-center mx-auto">
+            <div className="mb-8"></div> {/* Espacio agregado antes del título */}
             <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Somos la Iglesia de Cristo Ebenezer Honduras
             </h1>
