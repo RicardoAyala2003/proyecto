@@ -9,6 +9,8 @@ import VideosCarousel from "../../components/Carousels/VideosCarousel";
 
 import GridGallery from "../../components/Grid/GridGallery";
 
+import SocialMediaCards from "../../components/SocialMediaCards/SocialMediaCards";
+
 import { Divider } from "antd";
 
 const Multimedia = () => {
@@ -64,27 +66,26 @@ const Multimedia = () => {
         overlayMargin={424}>
         {/* <GridGallery /> */}
 
-        <div style={{ padding: "20px" }}>
-          <MasonryGallery images={images} />
+        <div className="w-full">
+          <SocialMediaCards />
+          <div style={{ padding: "20px" }}>
+            <MasonryGallery images={images} />
+          </div>
+          <Divider
+            style={{
+              borderColor: dominantColor,
+            }}>
+            Imagenes
+          </Divider>
+          <ImagesCarousel images={images} />
+          <Divider
+            style={{
+              borderColor: dominantColor,
+            }}>
+            Videos
+          </Divider>
+          <VideosCarousel videos={videos} />{" "}
         </div>
-
-        <Divider
-          style={{
-            borderColor: dominantColor,
-          }}>
-          Imagenes
-        </Divider>
-
-        <ImagesCarousel images={images} />
-
-        <Divider
-          style={{
-            borderColor: dominantColor,
-          }}>
-          Videos
-        </Divider>
-
-        <VideosCarousel videos={videos} />
       </ImagesBanner>
     </div>
   );
