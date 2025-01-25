@@ -55,7 +55,7 @@ const Orar = () => {
       <ImagesBanner
         title="Estamos aquí para ti"
         image="/Covers/orando.jpg"
-        overlayMargin={384}>
+        overlayMargin={424}>
         <div className="w-screen justify-center items-center z-10">
           <div className="flex justify-center items-center z-10"></div>
         </div>

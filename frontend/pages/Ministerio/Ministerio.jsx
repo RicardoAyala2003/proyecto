@@ -16,7 +16,7 @@ const Ministerio = () => {
       <ImagesBanner
         title="Ministerio"
         image="/Covers/ministerio.jpg"
-        overlayMargin={384}>
+        overlayMargin={424}>
         <div className="w-full justify-center items-center z-10">
           <div className="flex justify-center items-center z-10 w-full">
             <MinisterioGallery />

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 
@@ -80,78 +80,81 @@ const Inicio = () => {
   ];
 
   return (
-    <div className="overflow-hidden">
-      <div>
-        {/* Animated Banner */}
-        {/* <motion.div
+    <Suspense fallback={<h1>Loading..</h1>}>
+      <div className="overflow-hidden">
+        <div>
+          {/* Animated Banner */}
+          {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}> */}
-        <ImagesBanner
-          title="Bienvenido"
-          image="/Covers/inicio2.jpg"
-          overlayMargin={384}>
-          <HomeGallery />
+          <ImagesBanner
+            title="Bienvenido"
+            description="¡Nos alegra que estés aquí!"
+            image="/Covers/inicio2.jpg"
+            overlayMargin={424}>
+            <HomeGallery />
 
-          {/* </motion.div> */}
+            {/* </motion.div> */}
 
-          {/* Cards Area */}
-          <div className="mb-24 px-4">
-            <motion.h1
-              className="text-3xl font-bold text-center"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}>
-              Bienvenido a la Página de Inicio
-            </motion.h1>
-            <motion.p
-              className="text-center text-lg mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}>
-              Esta es la página de inicio de nuestro proyecto.
-            </motion.p>
+            {/* Cards Area */}
+            <div className="mb-24 px-4">
+              <motion.h1
+                className="text-3xl font-bold text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}>
+                Bienvenido a la Página de Inicio
+              </motion.h1>
+              <motion.p
+                className="text-center text-lg mt-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}>
+                Esta es la página de inicio de nuestro proyecto.
+              </motion.p>
 
-            <div className="max-w-7xl mx-auto">
-              {cardsData.map((card, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-col md:flex-row items-center mt-8 bg-white shadow-md rounded-lg p-6 md:p-8 max-w-full overflow-hidden"
-                  ref={card.ref}
-                  initial={card.animation}
-                  animate={card.inView ? "visible" : card.animation}
-                  variants={cardVariants}
-                  transition={{ duration: 0.8 }}>
-                  <motion.img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg flex-shrink-0"
-                    initial="hidden"
-                    animate={card.inView ? "visible" : "hidden"}
-                    variants={imageVariants}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  />
-                  <div className="w-full md:ml-8 mt-4 md:mt-0 text-center md:text-left">
-                    <h2 className="text-xl md:text-2xl font-semibold mb-4 text-[#002140]">
-                      {card.title}
-                    </h2>
-                    <p className="mb-4 text-gray-700">{card.description}</p>
-                    <motion.button
-                      className="bg-[#002140] text-white px-4 py-2 md:px-6 md:py-3 rounded hover:bg-[#004080] transition"
-                      onClick={card.onClick}
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap">
-                      {card.buttonText}
-                    </motion.button>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="max-w-7xl mx-auto">
+                {cardsData.map((card, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex flex-col md:flex-row items-center mt-8 bg-white shadow-md rounded-lg p-6 md:p-8 max-w-full overflow-hidden"
+                    ref={card.ref}
+                    initial={card.animation}
+                    animate={card.inView ? "visible" : card.animation}
+                    variants={cardVariants}
+                    transition={{ duration: 0.8 }}>
+                    <motion.img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg flex-shrink-0"
+                      initial="hidden"
+                      animate={card.inView ? "visible" : "hidden"}
+                      variants={imageVariants}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    />
+                    <div className="w-full md:ml-8 mt-4 md:mt-0 text-center md:text-left">
+                      <h2 className="text-xl md:text-2xl font-semibold mb-4 text-[#002140]">
+                        {card.title}
+                      </h2>
+                      <p className="mb-4 text-gray-700">{card.description}</p>
+                      <motion.button
+                        className="bg-[#002140] text-white px-4 py-2 md:px-6 md:py-3 rounded hover:bg-[#004080] transition"
+                        onClick={card.onClick}
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap">
+                        {card.buttonText}
+                      </motion.button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </ImagesBanner>
+          </ImagesBanner>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 

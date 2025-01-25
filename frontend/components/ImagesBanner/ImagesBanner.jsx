@@ -36,14 +36,14 @@ const HomePage = (props) => {
             <div className="flex flex-col  h-full w-full">
               <div className="mb-32">
                 <div className="hero-content z-10 ">
-                  <h1 className="text-white text-6xl font-bold text-center">
+                  <h1 className="text-white  font-bold text-center text-6xl sm:text-8xl">
                     {props.title}
                   </h1>
                 </div>
 
-                <h4 className="mt-2 text-white font-bold text-center">
+                <h1 className="mt-2 text-white font-bold text-center text-2xl sm:text-7xl">
                   {props.description}
-                </h4>
+                </h1>
               </div>
               <div className=" w-full">{props.children}</div>
             </div>

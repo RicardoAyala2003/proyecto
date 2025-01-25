@@ -61,7 +61,7 @@ const Multimedia = () => {
       <ImagesBanner
         title="Multimedia"
         image="/Covers/multimedia.jpg"
-        overlayMargin={384}>
+        overlayMargin={424}>
         {/* <GridGallery /> */}
 
         <div style={{ padding: "20px" }}>
