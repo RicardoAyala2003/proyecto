@@ -11,6 +11,8 @@ import GridGallery from "../../components/Grid/GridGallery";
 
 import SocialMediaCards from "../../components/SocialMediaCards/SocialMediaCards";
 
+import VideoCard from "../../components/VideoCard/VideoCard";
+
 import { Divider } from "antd";
 
 const Multimedia = () => {
@@ -64,27 +66,35 @@ const Multimedia = () => {
         title="Multimedia"
         image="/Covers/multimedia.jpg"
         overlayMargin={424}>
-        {/* <GridGallery /> */}
-
+        {/* <Divider
+          style={{
+            borderColor: dominantColor,
+          }}>
+          Imagenes
+        </Divider>
+        <ImagesCarousel images={images} /> */}
         <div className="w-full">
-          <SocialMediaCards />
-          <div style={{ padding: "20px" }}>
+          {/* <GridGallery /> */}
+          <div className="sm:px-12">
+            <VideoCard />
+          </div>
+          <div className="bg-gradient-to-b from-transparent to-blue-600 md:px-1 sm:px-1 lg:px-32 py-16">
             <MasonryGallery images={images} />
           </div>
-          <Divider
-            style={{
-              borderColor: dominantColor,
-            }}>
-            Imagenes
-          </Divider>
-          <ImagesCarousel images={images} />
-          <Divider
+
+          {/* <div style={{ padding: "20px" }}>
+            <MasonryGallery images={images} />
+          </div> */}
+          {/* <Divider
             style={{
               borderColor: dominantColor,
             }}>
             Videos
           </Divider>
-          <VideosCarousel videos={videos} />{" "}
+          <VideosCarousel videos={videos} />{" "} */}
+          <div className="bg-blue-100 md:px-1 sm:px-1 lg:px-16 py-16 ">
+            <SocialMediaCards />
+          </div>
         </div>
       </ImagesBanner>
     </div>
