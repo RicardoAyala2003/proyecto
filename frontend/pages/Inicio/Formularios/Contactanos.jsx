@@ -36,7 +36,7 @@ const Contactenos = () => {
     <div
       className=" min-h-screen pt-32 "
       style={{
-        // background: `linear-gradient(to bottom, white, ${dominantColor})`,
+        // background: linear-gradient(to bottom, white, ${dominantColor}),
         color: "white",
 
         backgroundColor: dominantColor,
