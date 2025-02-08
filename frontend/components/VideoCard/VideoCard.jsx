@@ -33,7 +33,7 @@ const VideoCard = () => {
           {/* Description Section */}
           <div className="bg-white  rounded-2xl p-6 shadow-md mb-4 flex-grow">
             <p className="text-gray-800 text-lg md:text-xl font-semibold text-center">
-              Pastores Geovany y Jovita Delcid siendo habilitados para
+              Pastores Marvin Yovani y Jovita Delcid siendo habilitados para
               desarrollar ministerio pastoral en el estado de Missouri.
             </p>
           </div>
